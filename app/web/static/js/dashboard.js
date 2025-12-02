@@ -715,22 +715,141 @@ function initSchedulerModal() {
   document.querySelectorAll('.day-toggle').forEach(toggle => {
     toggle.addEventListener('change', () => {
       const daySchedule = toggle.closest('.day-schedule');
-      const inputs = daySchedule.querySelectorAll('.day-config input');
+      const inputs = daySchedule.querySelectorAll('.time-slots input, .add-slot-btn');
       inputs.forEach(input => {
         input.disabled = !toggle.checked;
       });
     });
-    
-    // Initial state
-    const daySchedule = toggle.closest('.day-schedule');
-    const inputs = daySchedule.querySelectorAll('.day-config input');
-    inputs.forEach(input => {
-      input.disabled = !toggle.checked;
+  });
+  
+  // Add time slot functionality
+  document.querySelectorAll('.add-slot-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const daySchedule = btn.closest('.day-schedule');
+      const timeSlotsContainer = daySchedule.querySelector('.time-slots');
+      
+      const newSlot = createTimeSlotElement();
+      timeSlotsContainer.appendChild(newSlot);
     });
   });
   
+  // Remove time slot functionality (for initial slots)
+  document.querySelectorAll('.slot-remove').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const slot = btn.closest('.time-slot');
+      const timeSlotsContainer = slot.closest('.time-slots');
+      
+      // Don't remove if it's the last slot
+      if (timeSlotsContainer.querySelectorAll('.time-slot').length > 1) {
+        slot.remove();
+      } else {
+        showToast('At least one time slot is required', 'warning');
+      }
+    });
+  });
+  
+  // Helper function to create a time slot element
+  function createTimeSlotElement(startTime = '09:00', endTime = '17:00', interval = 30) {
+    const slot = document.createElement('div');
+    slot.className = 'time-slot';
+    slot.innerHTML = `
+      <input type="time" value="${startTime}" class="slot-start" />
+      <span>to</span>
+      <input type="time" value="${endTime}" class="slot-end" />
+      <input type="number" min="5" max="120" value="${interval}" class="slot-interval" />
+      <span>min</span>
+      <button type="button" class="slot-remove" title="Remove time slot">×</button>
+    `;
+    
+    // Add remove handler
+    slot.querySelector('.slot-remove').addEventListener('click', () => {
+      const container = slot.closest('.time-slots');
+      if (container.querySelectorAll('.time-slot').length > 1) {
+        slot.remove();
+      } else {
+        showToast('At least one time slot is required', 'warning');
+      }
+    });
+    
+    return slot;
+  }
+  
+  // Load config into modal form
+  async function loadConfigIntoModal() {
+    try {
+      const response = await fetch('/api/scheduler/config');
+      if (!response.ok) return;
+      
+      const config = await response.json();
+      
+      // Set active mode
+      document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === config.mode);
+      });
+      document.querySelectorAll('.scheduler-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.id === `${config.mode}-panel`);
+      });
+      
+      // Populate Simple mode
+      if (config.mode === 'simple' || config.enabled !== undefined) {
+        const enabledCheckbox = document.getElementById('scheduler-enabled');
+        if (enabledCheckbox) enabledCheckbox.checked = config.enabled !== false;
+        if (config.interval) {
+          intervalSlider.value = config.interval;
+          intervalValue.value = config.interval;
+        }
+      }
+      
+      // Populate Weekly mode
+      if (config.mode === 'weekly' || config.days) {
+        if (config.days) {
+          document.querySelectorAll('.weekday-selector input[type="checkbox"]').forEach(cb => {
+            cb.checked = config.days.includes(parseInt(cb.value));
+          });
+        }
+        if (config.startTime) document.getElementById('start-time').value = config.startTime;
+        if (config.endTime) document.getElementById('end-time').value = config.endTime;
+        if (config.interval && weeklySlider && weeklyValue) {
+          weeklySlider.value = config.interval;
+          weeklyValue.value = config.interval;
+        }
+      }
+      
+      // Populate Advanced mode
+      if (config.mode === 'advanced' && config.schedule) {
+        document.querySelectorAll('.day-schedule').forEach(daySchedule => {
+          const day = daySchedule.dataset.day;
+          const toggle = daySchedule.querySelector('.day-toggle');
+          const timeSlotsContainer = daySchedule.querySelector('.time-slots');
+          
+          if (config.schedule[day]) {
+            // Day is enabled
+            toggle.checked = true;
+            
+            // Clear existing slots
+            timeSlotsContainer.innerHTML = '';
+            
+            // Add slots from config
+            const slots = config.schedule[day];
+            slots.forEach(slotData => {
+              const slot = createTimeSlotElement(slotData.startTime, slotData.endTime, slotData.interval);
+              timeSlotsContainer.appendChild(slot);
+            });
+          } else {
+            // Day is disabled - keep default slot
+            toggle.checked = false;
+          }
+        });
+      }
+      
+    } catch (error) {
+      console.error('Failed to load config into modal:', error);
+    }
+  }
+  
   // Open modal
-  openBtn?.addEventListener('click', () => {
+  openBtn?.addEventListener('click', async () => {
+    await loadConfigIntoModal();
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
@@ -780,32 +899,53 @@ function initSchedulerModal() {
     } else if (activeMode === 'advanced') {
       config.schedule = {};
       
-      document.querySelectorAll('.day-toggle:checked').forEach(toggle => {
-        const day = toggle.dataset.day;
-        const daySchedule = toggle.closest('.day-schedule');
-        const inputs = daySchedule.querySelectorAll('.day-config input');
+      document.querySelectorAll('.day-schedule').forEach(daySchedule => {
+        const toggle = daySchedule.querySelector('.day-toggle');
+        if (!toggle.checked) return;
         
-        config.schedule[day] = {
-          startTime: inputs[0].value,
-          endTime: inputs[1].value,
-          interval: parseInt(inputs[2].value)
-        };
+        const day = daySchedule.dataset.day;
+        const slots = [];
+        
+        daySchedule.querySelectorAll('.time-slot').forEach(slot => {
+          slots.push({
+            startTime: slot.querySelector('.slot-start').value,
+            endTime: slot.querySelector('.slot-end').value,
+            interval: parseInt(slot.querySelector('.slot-interval').value)
+          });
+        });
+        
+        config.schedule[day] = slots;
       });
     }
     
-    // Save to localStorage for now (in production, send to backend)
-    localStorage.setItem('schedulerConfig', JSON.stringify(config));
-    
-    showToast(`Scheduler configured in ${activeMode} mode!`, 'success');
-    closeModal();
-    
-    // Update status pill
-    updateSchedulerStatus(config);
+    // Save to backend API
+    try {
+      const response = await fetch('/api/scheduler/config', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(config)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to save configuration');
+      }
+      
+      showToast(`Scheduler configured in ${activeMode} mode!`, 'success');
+      closeModal();
+      
+      // Update status pill
+      updateSchedulerStatus(config);
+    } catch (error) {
+      console.error('Failed to save scheduler config:', error);
+      showToast('Failed to save scheduler configuration', 'error');
+    }
   });
 }
 
 function updateSchedulerStatus(config) {
-  const statusPill = document.querySelector('.status-pill span:last-child');
+  const statusPill = document.querySelector('.status-pill .status-text');
   if (!statusPill) return;
   
   if (config.mode === 'simple') {
@@ -817,18 +957,21 @@ function updateSchedulerStatus(config) {
     statusPill.textContent = `Scheduler: Weekly · ${days} · ${config.startTime}-${config.endTime} · ${config.interval}min`;
   } else if (config.mode === 'advanced') {
     const activeDays = Object.keys(config.schedule).length;
-    statusPill.textContent = `Scheduler: Advanced · ${activeDays} days configured`;
+    const totalSlots = Object.values(config.schedule).reduce((sum, slots) => sum + slots.length, 0);
+    statusPill.textContent = `Scheduler: Advanced · ${activeDays} days · ${totalSlots} time slots`;
   }
 }
 
 // Load saved scheduler config on startup
-function loadSchedulerConfig() {
+async function loadSchedulerConfig() {
   try {
-    const saved = localStorage.getItem('schedulerConfig');
-    if (saved) {
-      const config = JSON.parse(saved);
-      updateSchedulerStatus(config);
+    const response = await fetch('/api/scheduler/config');
+    if (!response.ok) {
+      throw new Error('Failed to load configuration');
     }
+    
+    const config = await response.json();
+    updateSchedulerStatus(config);
   } catch (error) {
     console.error('Failed to load scheduler config:', error);
   }

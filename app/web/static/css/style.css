@@ -135,6 +135,12 @@ header h1 {
   color: var(--text-secondary);
 }
 
+.status-pill .status-text {
+  flex: 1;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
 .status-dot {
   width: 8px;
   height: 8px;
@@ -875,7 +881,8 @@ input:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .scheduler-config-btn svg {
@@ -884,8 +891,7 @@ input:focus-visible {
 }
 
 .scheduler-config-btn:hover {
-  color: var(--accent-cyan);
-  background: rgba(34, 211, 238, 0.1);
+  color: var(--text-primary);
 }
 
 .modal-overlay {
@@ -1362,6 +1368,119 @@ input:focus-visible {
 
 .day-header {
   margin-bottom: 12px;
+}
+
+/* Time Slots Container */
+.time-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+  transition: opacity var(--transition-fast);
+}
+
+.day-schedule:has(.day-toggle:checked) .time-slots {
+  opacity: 1;
+}
+
+/* Individual Time Slot */
+.time-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.time-slot input[type="time"] {
+  flex: 1;
+  min-width: 100px;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.time-slot input[type="number"] {
+  width: 70px;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.time-slot input:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+}
+
+.time-slot span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Remove Slot Button */
+.slot-remove {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.slot-remove:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--accent-red);
+}
+
+/* Add Slot Button */
+.add-slot-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  opacity: 0.5;
+}
+
+.day-schedule:has(.day-toggle:checked) .add-slot-btn {
+  opacity: 1;
+}
+
+.add-slot-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.add-slot-btn:hover {
+  background: rgba(34, 211, 238, 0.1);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
 }
 
 .day-config {

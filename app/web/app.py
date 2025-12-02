@@ -94,6 +94,52 @@ def create_web_app(
             }
         )
 
+    @app.get("/api/scheduler/config")
+    def api_get_scheduler_config():
+        """Get current scheduler configuration."""
+        config_file = Path("data/scheduler_config.json")
+        if not config_file.exists():
+            # Return default config
+            return jsonify({
+                "mode": "simple",
+                "enabled": config.scheduler.enabled,
+                "interval": config.scheduler.interval_minutes
+            })
+        
+        import json
+        try:
+            with open(config_file, "r") as f:
+                return jsonify(json.load(f))
+        except Exception as e:
+            LOGGER.error(f"Failed to read scheduler config: {e}")
+            return jsonify({"error": "Failed to read configuration"}), 500
+
+    @app.post("/api/scheduler/config")
+    def api_save_scheduler_config():
+        """Save scheduler configuration to file."""
+        import json
+        
+        config_data = request.get_json()
+        if not config_data:
+            return jsonify({"error": "No configuration data provided"}), 400
+        
+        # Validate mode
+        if "mode" not in config_data or config_data["mode"] not in ["simple", "weekly", "advanced"]:
+            return jsonify({"error": "Invalid mode specified"}), 400
+        
+        config_file = Path("data/scheduler_config.json")
+        config_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        try:
+            with open(config_file, "w") as f:
+                json.dump(config_data, f, indent=2)
+            
+            LOGGER.info(f"Scheduler configuration saved: {config_data.get('mode')} mode")
+            return jsonify({"status": "success", "message": "Configuration saved"})
+        except Exception as e:
+            LOGGER.error(f"Failed to save scheduler config: {e}")
+            return jsonify({"error": "Failed to save configuration"}), 500
+
     return app
 
 

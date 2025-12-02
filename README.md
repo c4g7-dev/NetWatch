@@ -27,10 +27,14 @@ A beautiful, self-hosted network performance monitoring dashboard with real-time
 - **Global Timeline Slider** - Synchronize all charts to specific time windows
 - **Historical Data Table** - Searchable, sortable measurement history
 
-### ⚙️ Automation & Scheduling
-- **Built-in Scheduler** - Configurable interval-based measurements (default: 30 min)
+### ⚙️ Advanced Scheduler Configuration
+- **3 Scheduling Modes:**
+  - **Simple** - 24/7 monitoring with configurable interval (5-120 min)
+  - **Weekly** - Select active weekdays with time windows
+  - **Advanced** - Per-day custom schedules with multiple time slots
+- **Multiple Time Slots** - Add multiple measurement windows per day (e.g., 4am-10am, then 10pm-midnight)
+- **Server-Side Storage** - Configuration syncs across all devices
 - **Manual Triggers** - On-demand speedtest and bufferbloat tests
-- **Automatic Retries** - Resilient measurement execution with error handling
 
 ### 💾 Data Management
 - **SQLite Storage** - Lightweight, file-based database
@@ -45,12 +49,25 @@ A beautiful, self-hosted network performance monitoring dashboard with real-time
 - **Toast Notifications** - Real-time feedback for user actions
 - **Animated Metrics** - Count-up animations and progress bars
 
-## � Screenshots
+## 📸 Screenshots
 
+### Dashboard
 <p align="center">
   <img src="assets/img1.png" alt="NetWatch Dashboard - Main View" width="49%">
   <img src="assets/img2.png" alt="NetWatch Dashboard - Charts" width="49%">
 </p>
+
+### Scheduler Configuration
+<p align="center">
+  <img src="assets/time/img1.png" alt="Simple Mode - 24/7 Scheduling" width="32%">
+  <img src="assets/time/img2.png" alt="Weekly Mode - Day Selection" width="32%">
+  <img src="assets/time/img3.png" alt="Advanced Mode - Multiple Time Slots" width="32%">
+</p>
+
+**Scheduling Modes:**
+- **Simple** (left): Run measurements 24/7 with a fixed interval
+- **Weekly** (center): Select specific weekdays and time windows
+- **Advanced** (right): Configure multiple time slots per day for granular control
 
 ## 🚀 Quick Start
 
@@ -276,7 +293,15 @@ curl "http://localhost:8000/api/export/csv?start=2025-12-01T00:00:00Z&end=2025-1
 | `/api/status` | GET | System status and configuration |
 | `/api/summary/latest` | GET | Latest measurement with delta |
 | `/api/measurements` | GET | Historical measurements (supports filtering) |
-| `/Linux (systemd service)
+| `/api/export/csv` | GET | Export measurements as CSV |
+| `/api/manual/speedtest` | POST | Trigger manual speedtest |
+| `/api/manual/bufferbloat` | POST | Trigger manual bufferbloat test |
+| `/api/scheduler/config` | GET | Get current scheduler configuration |
+| `/api/scheduler/config` | POST | Save scheduler configuration |
+
+## 🔄 Updating
+
+### Linux (systemd service)
 ```bash
 cd /opt/netwatch
 sudo systemctl stop netwatch

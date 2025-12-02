@@ -282,3 +282,535 @@ FileNotFoundError: iperf3 binary is required for bufferbloat tests
 2025-12-02 19:18:49 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:18:49] "GET /api/summary/latest HTTP/1.1" 200 -
 2025-12-02 19:19:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:19:40] "GET /api/summary/latest HTTP/1.1" 200 -
 2025-12-02 19:19:49 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:19:49] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:20:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:20:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:20:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:20:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:21:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:21:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:21:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:21:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:22:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:22:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:22:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:22:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:23:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:23:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:23:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:23:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:24:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:24:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:24:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:24:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:25:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:25:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:25:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:25:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:26:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:26:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:26:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:26:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:27:09 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:09] "GET / HTTP/1.1" 200 -
+2025-12-02 19:27:09 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:09] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:27:09 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:09] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:27:09 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:09] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:27:09 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:09] "GET /api/measurements?start=2025-12-01T18:27:09.768Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:27:11 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:11] "GET / HTTP/1.1" 200 -
+2025-12-02 19:27:11 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:11] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:27:11 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:11] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:27:11 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:11] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:27:11 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:11] "GET /api/measurements?start=2025-12-01T18:27:11.262Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:27:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:27:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:28:11 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:28:11] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:28:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:28:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:29:12 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:29:12] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:29:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:29:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:30:12 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:30:12] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:30:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:30:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:31:12 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:31:12] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:31:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:31:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:32:12 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:32:12] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:32:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:32:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:33:13 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:33:13] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:33:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:33:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:33:46 [INFO] apscheduler.executors.default - Running job "SchedulerService._run_cycle (trigger: interval[0:30:00], next run at: 2025-12-02 20:03:46 CET)" (scheduled at 2025-12-02 19:33:46.824522+01:00)
+2025-12-02 19:33:46 [INFO] app.scheduler - Starting scheduled measurement cycle at 2025-12-02T18:33:46.826305
+2025-12-02 19:34:05 [INFO] app.measurements.manager - Stored speedtest measurement at 2025-12-02T18:34:05+00:00 (down 951.20 Mbps / up 52.60 Mbps)
+2025-12-02 19:34:06 [ERROR] app.scheduler - Scheduled measurement failed: iperf3 binary is required for bufferbloat tests
+Traceback (most recent call last):
+  File "C:\Users\arneh\Downloads\IT\app\scheduler.py", line 51, in _run_cycle
+    self.measurements.run_bufferbloat()
+  File "C:\Users\arneh\Downloads\IT\app\measurements\manager.py", line 61, in run_bufferbloat
+    result = run_bufferbloat_test(self.config)
+  File "C:\Users\arneh\Downloads\IT\app\measurements\bufferbloat_runner.py", line 40, in run_bufferbloat_test
+    raise FileNotFoundError("iperf3 binary is required for bufferbloat tests")
+FileNotFoundError: iperf3 binary is required for bufferbloat tests
+2025-12-02 19:34:06 [INFO] apscheduler.executors.default - Job "SchedulerService._run_cycle (trigger: interval[0:30:00], next run at: 2025-12-02 20:03:46 CET)" executed successfully
+2025-12-02 19:34:13 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:13] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:50] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:50] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:34:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:50] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:34:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:50] "GET /api/measurements?start=2025-12-01T18:34:50.984Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:51] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:51] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:51] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:52] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:52] "GET /api/measurements?start=2025-12-01T18:34:52.007Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:53 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:53] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:53 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:53] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:53 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:53] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:53 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:53] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:53 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:53] "GET /api/measurements?start=2025-12-01T18:34:53.206Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:54] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:54] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:54] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:54] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:54] "GET /api/measurements?start=2025-12-01T18:34:54.484Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:55] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:55] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:55] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:55] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:55] "GET /api/measurements?start=2025-12-01T18:34:55.741Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:56 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:56] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:56 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:56] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:56 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:56] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:56 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:56] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:56 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:56] "GET /api/measurements?start=2025-12-01T18:34:56.960Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:57] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:57] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:57] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:57] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:57] "GET /api/measurements?start=2025-12-01T18:34:57.960Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:58] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:58] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:58] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:58] "GET /api/measurements?start=2025-12-01T18:34:58.976Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:34:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:59] "GET / HTTP/1.1" 200 -
+2025-12-02 19:34:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:59] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:59] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:34:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:59] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:34:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:34:59] "GET /api/measurements?start=2025-12-01T18:34:59.855Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/measurements?start=2025-12-01T18:35:00.086Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/measurements?start=2025-12-01T18:35:00.288Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/measurements?start=2025-12-01T18:35:00.518Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/measurements?start=2025-12-01T18:35:00.684Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:00 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:00] "GET /api/measurements?start=2025-12-01T18:35:00.900Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/measurements?start=2025-12-01T18:35:01.082Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/measurements?start=2025-12-01T18:35:01.240Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/measurements?start=2025-12-01T18:35:01.408Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/measurements?start=2025-12-01T18:35:01.573Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/measurements?start=2025-12-01T18:35:01.723Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET /api/measurements?start=2025-12-01T18:35:01.903Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:01 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:01] "GET / HTTP/1.1" 200 -
+2025-12-02 19:35:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:02] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:02] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:35:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:02] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:35:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:02] "GET /api/measurements?start=2025-12-01T18:35:02.053Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:35:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:35:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:36:26 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:36:26] "GET /api/measurements?start=2025-12-01T18:36:26.178Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:36:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:36:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:37:26 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:37:26] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:37:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:37:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:38:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:38:02] "GET /api/measurements?limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:38:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:38:03] "GET /api/measurements?start=2025-11-02T18:38:03.022Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:38:04 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:38:04] "GET /api/measurements?start=2025-12-01T18:38:04.700Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:38:27 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:38:27] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:38:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:38:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:39:27 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:39:27] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:39:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:39:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:40:27 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:40:27] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:40:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:40:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:41:28 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:28] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:41:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:41:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:58] "GET / HTTP/1.1" 200 -
+2025-12-02 19:41:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:58] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:41:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:58] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:41:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:41:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:58] "GET /api/measurements?start=2025-12-01T18:41:58.828Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:41:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:59] "GET / HTTP/1.1" 200 -
+2025-12-02 19:41:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:59] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:41:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:59] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:41:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:59] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:41:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:41:59] "GET /api/measurements?start=2025-12-01T18:41:59.492Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:42:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:42:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:43] "GET / HTTP/1.1" 200 -
+2025-12-02 19:42:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:43] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:43] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:43] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:42:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:43] "GET /api/measurements?start=2025-12-01T18:42:43.650Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:42:44 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:44] "GET / HTTP/1.1" 200 -
+2025-12-02 19:42:44 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:44] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:44 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:44] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:44 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:44] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:42:44 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:44] "GET /api/measurements?start=2025-12-01T18:42:44.868Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "GET / HTTP/1.1" 200 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "GET /api/measurements?start=2025-12-01T18:42:45.293Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "GET / HTTP/1.1" 200 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:42:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:45] "GET /api/measurements?start=2025-12-01T18:42:45.627Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:42:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:50] "GET / HTTP/1.1" 200 -
+2025-12-02 19:42:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:50] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:42:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:50] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:42:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:42:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:42:50] "GET /api/measurements?start=2025-12-01T18:42:50.990Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:43:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:43:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:43:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:43:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:44:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:44:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:44:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:44:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:45:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:45:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:45:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:45:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:46:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:46:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:46:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:46:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:47:19 [INFO] apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-12-02 19:47:19 [INFO] apscheduler.scheduler - Added job "SchedulerService._run_cycle" to job store "default"
+2025-12-02 19:47:19 [INFO] apscheduler.scheduler - Scheduler started
+2025-12-02 19:47:19 [INFO] app.scheduler - Scheduler started with interval 30 minutes
+2025-12-02 19:47:20 [INFO] werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.59:8000
+2025-12-02 19:47:20 [INFO] werkzeug - [33mPress CTRL+C to quit[0m
+2025-12-02 19:47:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:47:36] "GET /?id=ca6b7931-1814-4dda-9c70-53b6bcc46dce&vscodeBrowserReqId=1764701256735 HTTP/1.1" 200 -
+2025-12-02 19:47:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:47:36] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:47:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:47:36] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:47:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:47:36] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:47:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:47:36] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:47:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:47:36] "GET /api/measurements?start=2025-12-01T18:47:36.787Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:47:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:47:52] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:15 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:15] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:15 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:15] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:15 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:15] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:15 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:15] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:15 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:15] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:15 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:15] "GET /api/measurements?start=2025-12-01T18:48:15.774Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET /api/measurements?start=2025-12-01T18:48:16.457Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET /api/measurements?start=2025-12-01T18:48:16.643Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:16] "GET /api/measurements?start=2025-12-01T18:48:16.794Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET /api/measurements?start=2025-12-01T18:48:17.470Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:17] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/measurements?start=2025-12-01T18:48:18.039Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/measurements?start=2025-12-01T18:48:18.227Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/measurements?start=2025-12-01T18:48:18.336Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET / HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/measurements?start=2025-12-01T18:48:18.569Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:48:18 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:18] "GET /api/measurements?start=2025-12-01T18:48:18.696Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:48:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:48:36] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:49:19 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:49:19] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:49:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:49:36] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:50:19 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:50:19] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:50:36 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:50:36] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:51:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:51:03] "GET /?id=ca6b7931-1814-4dda-9c70-53b6bcc46dce&vscodeBrowserReqId=1764701463078 HTTP/1.1" 200 -
+2025-12-02 19:51:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:51:03] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:51:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:51:03] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:51:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:51:03] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:51:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:51:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:51:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:51:03] "GET /api/measurements?start=2025-12-01T18:51:03.117Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:51:19 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:51:19] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:52:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:52:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:52:19 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:52:19] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:53:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:53:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:53:19 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:53:19] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:54:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:54:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:54:20 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:54:20] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:20 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:20] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:50] "GET / HTTP/1.1" 200 -
+2025-12-02 19:55:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:50] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:55:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:50] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:55:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:50] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:55:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:50] "GET /api/measurements?start=2025-12-01T18:55:50.927Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:55:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:51] "GET / HTTP/1.1" 200 -
+2025-12-02 19:55:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:51] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:51] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:51] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:55:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:51] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:51] "GET /api/measurements?start=2025-12-01T18:55:51.630Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "GET / HTTP/1.1" 200 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "GET /api/measurements?start=2025-12-01T18:55:52.328Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "GET / HTTP/1.1" 200 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:52 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:52] "GET /api/measurements?start=2025-12-01T18:55:52.725Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "GET / HTTP/1.1" 200 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "GET /api/measurements?start=2025-12-01T18:55:54.093Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "GET / HTTP/1.1" 200 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:55:54 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:54] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "GET /api/measurements?start=2025-12-01T18:55:55.044Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "GET / HTTP/1.1" 200 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:55:55 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:55:55] "GET /api/measurements?start=2025-12-01T18:55:55.779Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:56:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:56:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:05] "GET / HTTP/1.1" 200 -
+2025-12-02 19:56:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:05] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:56:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:05] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:56:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:05] "[33mGET /api/scheduler/config HTTP/1.1[0m" 404 -
+2025-12-02 19:56:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:05] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:56:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:05] "GET /api/measurements?start=2025-12-01T18:56:05.581Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:56:15 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:15] "GET /api/measurements?start=2025-12-19T20:56:00.000Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:56:16 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:16] "GET /api/measurements?start=2025-12-01T18:56:16.512Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:56:24 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-02 19:56:56 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:56:56] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:57:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:57:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:57:10 [INFO] apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-12-02 19:57:10 [INFO] apscheduler.scheduler - Added job "SchedulerService._run_cycle" to job store "default"
+2025-12-02 19:57:10 [INFO] apscheduler.scheduler - Scheduler started
+2025-12-02 19:57:10 [INFO] app.scheduler - Scheduler started with interval 30 minutes
+2025-12-02 19:57:11 [INFO] werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.59:8000
+2025-12-02 19:57:11 [INFO] werkzeug - [33mPress CTRL+C to quit[0m
+2025-12-02 19:57:38 [INFO] apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-12-02 19:57:38 [INFO] apscheduler.scheduler - Added job "SchedulerService._run_cycle" to job store "default"
+2025-12-02 19:57:38 [INFO] apscheduler.scheduler - Scheduler started
+2025-12-02 19:57:38 [INFO] app.scheduler - Scheduler started with interval 30 minutes
+2025-12-02 19:57:40 [INFO] werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.59:8000
+2025-12-02 19:57:40 [INFO] werkzeug - [33mPress CTRL+C to quit[0m
+2025-12-02 19:57:57 [INFO] apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-12-02 19:57:57 [INFO] apscheduler.scheduler - Added job "SchedulerService._run_cycle" to job store "default"
+2025-12-02 19:57:57 [INFO] apscheduler.scheduler - Scheduler started
+2025-12-02 19:57:57 [INFO] app.scheduler - Scheduler started with interval 30 minutes
+2025-12-02 19:57:59 [INFO] werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.59:8000
+2025-12-02 19:57:59 [INFO] werkzeug - [33mPress CTRL+C to quit[0m
+2025-12-02 19:58:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:58:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:05] "GET / HTTP/1.1" 200 -
+2025-12-02 19:58:06 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:06] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:58:32 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:32] "GET /?id=ca6b7931-1814-4dda-9c70-53b6bcc46dce&vscodeBrowserReqId=1764701912907 HTTP/1.1" 200 -
+2025-12-02 19:58:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:33] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 19:58:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:33] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 19:58:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:33] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 19:58:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:58:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:33] "GET /api/measurements?start=2025-12-01T18:58:33.183Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:58:56 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:58:56] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:59:06 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:06] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:59:22 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:22] "GET / HTTP/1.1" 200 -
+2025-12-02 19:59:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:23] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:59:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:23] "[36mGET /static/js/dashboard.js?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 19:59:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:23] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 19:59:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:23] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:59:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:23] "GET /api/measurements?start=2025-12-01T18:59:23.387Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 19:59:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 19:59:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 19:59:57] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:00:20 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:20] "GET / HTTP/1.1" 200 -
+2025-12-02 20:00:21 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:21] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 20:00:21 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:21] "GET / HTTP/1.1" 200 -
+2025-12-02 20:00:21 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:21] "[36mGET /static/css/style.css?v=2 HTTP/1.1[0m" 304 -
+2025-12-02 20:00:21 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:21] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 20:00:21 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:21] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:00:21 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:21] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:00:22 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:22] "GET /api/measurements?start=2025-12-01T19:00:21.863Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:00:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:00:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:00:57] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:01:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:01:23] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:01:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:01:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:01:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:01:57] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:02:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:02:23] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:02:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:02:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:02:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:02:57] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:03:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:03:23] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:03:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:03:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:03:57 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:03:57] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:04:23 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:23] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:04:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:04:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:50] "GET / HTTP/1.1" 200 -
+2025-12-02 20:04:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:50] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 20:04:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:50] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 20:04:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:50] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:04:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:04:51 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:51] "GET /api/measurements?start=2025-12-01T19:04:50.840Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:04:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:04:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:05:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:02] "GET / HTTP/1.1" 200 -
+2025-12-02 20:05:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:02] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 20:05:02 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:02] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 20:05:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:03] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:05:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:03] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:05:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:03] "GET /api/measurements?start=2025-12-01T19:05:03.300Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:05:03 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:03] "GET / HTTP/1.1" 200 -
+2025-12-02 20:05:04 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:04] "GET /static/css/style.css?v=2 HTTP/1.1" 200 -
+2025-12-02 20:05:04 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:04] "GET /static/js/dashboard.js?v=2 HTTP/1.1" 200 -
+2025-12-02 20:05:04 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:04] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:05:04 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:04] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:05:04 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:04] "GET /api/measurements?start=2025-12-01T19:05:04.381Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:05:19 [INFO] app.web.app - Scheduler configuration saved: advanced mode
+2025-12-02 20:05:19 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:19] "POST /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:05:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:05:34 [INFO] app.web.app - Scheduler configuration saved: simple mode
+2025-12-02 20:05:34 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:34] "POST /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:05:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:05:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:06:05 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:05] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:06:12 [INFO] apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-12-02 20:06:12 [INFO] apscheduler.scheduler - Added job "SchedulerService._run_cycle" to job store "default"
+2025-12-02 20:06:12 [INFO] apscheduler.scheduler - Scheduler started
+2025-12-02 20:06:12 [INFO] app.scheduler - Scheduler started with interval 30 minutes
+2025-12-02 20:06:13 [INFO] werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.59:8000
+2025-12-02 20:06:13 [INFO] werkzeug - [33mPress CTRL+C to quit[0m
+2025-12-02 20:06:17 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:17] "GET / HTTP/1.1" 200 -
+2025-12-02 20:06:19 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:19] "GET / HTTP/1.1" 200 -
+2025-12-02 20:06:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:06:47 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:47] "GET / HTTP/1.1" 200 -
+2025-12-02 20:06:47 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:47] "GET /static/css/style.css?v=5 HTTP/1.1" 200 -
+2025-12-02 20:06:47 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:47] "GET /static/js/dashboard.js?v=5 HTTP/1.1" 200 -
+2025-12-02 20:06:47 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:47] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:06:47 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:47] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:06:48 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:48] "GET / HTTP/1.1" 200 -
+2025-12-02 20:06:48 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:48] "[36mGET /static/css/style.css?v=5 HTTP/1.1[0m" 304 -
+2025-12-02 20:06:48 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:48] "[36mGET /static/js/dashboard.js?v=5 HTTP/1.1[0m" 304 -
+2025-12-02 20:06:48 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:48] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:06:48 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:48] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:06:48 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:48] "GET /api/measurements?start=2025-12-01T19:06:48.398Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:06:49 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:49] "GET / HTTP/1.1" 200 -
+2025-12-02 20:06:49 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:49] "GET /static/css/style.css?v=5 HTTP/1.1" 200 -
+2025-12-02 20:06:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:50] "GET /static/js/dashboard.js?v=5 HTTP/1.1" 200 -
+2025-12-02 20:06:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:50] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:06:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:50] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:06:50 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:50] "GET /api/measurements?start=2025-12-01T19:06:50.449Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:06:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:06:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:07:22 [INFO] app.web.app - Scheduler configuration saved: advanced mode
+2025-12-02 20:07:22 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:22] "POST /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:07:31 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:31] "GET / HTTP/1.1" 200 -
+2025-12-02 20:07:31 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:31] "[36mGET /static/css/style.css?v=5 HTTP/1.1[0m" 304 -
+2025-12-02 20:07:31 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:31] "[36mGET /static/js/dashboard.js?v=5 HTTP/1.1[0m" 304 -
+2025-12-02 20:07:31 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:31] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:07:31 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:31] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:07:32 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:32] "GET /api/measurements?start=2025-12-01T19:07:31.951Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:07:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:07:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:07:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:08:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:08:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:08:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:08:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:08:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:08:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:09:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:09:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:09:39 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:39] "GET / HTTP/1.1" 200 -
+2025-12-02 20:09:39 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:39] "[36mGET /static/css/style.css?v=5 HTTP/1.1[0m" 304 -
+2025-12-02 20:09:39 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:39] "GET /static/js/dashboard.js?v=5 HTTP/1.1" 200 -
+2025-12-02 20:09:39 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:39] "GET / HTTP/1.1" 200 -
+2025-12-02 20:09:39 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:39] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:09:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:40] "[36mGET /static/css/style.css?v=5 HTTP/1.1[0m" 304 -
+2025-12-02 20:09:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:40] "[36mGET /static/js/dashboard.js?v=5 HTTP/1.1[0m" 304 -
+2025-12-02 20:09:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:40] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:09:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:40] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:09:40 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:40] "GET /api/measurements?start=2025-12-01T19:09:40.156Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:09:41 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:41] "GET / HTTP/1.1" 200 -
+2025-12-02 20:09:41 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:41] "GET /static/css/style.css?v=5 HTTP/1.1" 200 -
+2025-12-02 20:09:42 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:42] "GET /static/js/dashboard.js?v=5 HTTP/1.1" 200 -
+2025-12-02 20:09:42 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:42] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:09:42 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:42] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:09:42 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:42] "GET /api/measurements?start=2025-12-01T19:09:42.445Z&limit=5000 HTTP/1.1" 200 -
+2025-12-02 20:09:45 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:45] "GET /api/scheduler/config HTTP/1.1" 200 -
+2025-12-02 20:09:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:09:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:10:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:10:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:10:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:10:43] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:10:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:10:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:11:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:11:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:11:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:11:43] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:11:58 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:11:58] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:12:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:12:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:12:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:12:43] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:12:59 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:12:59] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:13:33 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:13:33] "GET /api/summary/latest HTTP/1.1" 200 -
+2025-12-02 20:13:43 [INFO] werkzeug - 127.0.0.1 - - [02/Dec/2025 20:13:43] "GET /api/summary/latest HTTP/1.1" 200 -
