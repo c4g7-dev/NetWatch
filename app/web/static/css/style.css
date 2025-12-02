@@ -1415,6 +1415,13 @@ input:focus-visible {
   color: var(--text-primary);
   font-size: 0.9rem;
   text-align: center;
+  -moz-appearance: textfield;
+}
+
+.time-slot input[type="number"]::-webkit-outer-spin-button,
+.time-slot input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .time-slot input:focus {

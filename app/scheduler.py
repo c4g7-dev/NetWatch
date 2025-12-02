@@ -155,12 +155,29 @@ class SchedulerService:
     def _run_cycle(self) -> None:
         """Run measurement cycle if allowed by schedule."""
         sched_config = self._load_scheduler_config()
+        now = datetime.now()
+        current_day = now.strftime("%A").lower()
+        current_time = now.strftime("%H:%M")
         
         if not self._should_run_now(sched_config):
-            LOGGER.debug("Skipping measurement - outside scheduled time window")
+            mode = sched_config.get("mode", "simple")
+            if mode == "advanced":
+                schedule = sched_config.get("schedule", {})
+                if current_day in schedule:
+                    slots = schedule[current_day]
+                    LOGGER.info(
+                        "Skipping measurement - %s %s is outside time slots: %s",
+                        current_day.capitalize(), current_time,
+                        ", ".join(f"{s['startTime']}-{s['endTime']}" for s in slots)
+                    )
+                else:
+                    LOGGER.info("Skipping measurement - %s not configured in schedule", current_day.capitalize())
+            else:
+                LOGGER.info("Skipping measurement - outside scheduled time window (%s %s)", current_day.capitalize(), current_time)
             return
         
-        LOGGER.info("Starting scheduled measurement cycle at %s", datetime.utcnow().isoformat())
+        LOGGER.info("Starting scheduled measurement cycle at %s (day: %s, time: %s)", 
+                    datetime.utcnow().isoformat(), current_day.capitalize(), current_time)
         try:
             self.measurements.run_speedtest()
             self.measurements.run_bufferbloat()

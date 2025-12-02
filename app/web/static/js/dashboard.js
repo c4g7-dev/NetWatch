@@ -847,11 +847,22 @@ function initSchedulerModal() {
     }
   }
   
-  // Open modal
+  // Open modal - load config first, then show
   openBtn?.addEventListener('click', async () => {
-    await loadConfigIntoModal();
+    // Hide modal content while loading
+    const modalContent = modal.querySelector('.scheduler-modal-content');
+    if (modalContent) modalContent.style.opacity = '0';
+    
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    await loadConfigIntoModal();
+    
+    // Show modal content after config is loaded
+    if (modalContent) {
+      modalContent.style.opacity = '1';
+      modalContent.style.transition = 'opacity 0.15s ease';
+    }
   });
   
   // Close modal
