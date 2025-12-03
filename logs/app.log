@@ -1890,3 +1890,17 @@ Traceback (most recent call last):
     raise JSONDecodeError("Expecting value", s, err.value) from None
 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 2025-12-02 20:39:30 [INFO] apscheduler.executors.default - Job "SchedulerService._run_cycle (trigger: interval[0:01:00], next run at: 2025-12-02 20:40:11 CET)" executed successfully
+2025-12-03 22:04:34 [INFO] app.web.app - Starting internal speedtest server...
+2025-12-03 22:04:34 [INFO] app.internal_speedtest - Speedtest server listening on 0.0.0.0:5201
+2025-12-03 22:04:34 [INFO] app.internal_speedtest - Internal speedtest server started on port 5201
+2025-12-03 22:04:34 [INFO] app.web.app - ✓ Internal speedtest server started successfully on port 5201
+2025-12-03 22:04:34 [INFO] app.scheduler - Initializing scheduler...
+2025-12-03 22:04:34 [INFO] apscheduler.scheduler - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-12-03 22:04:34 [INFO] apscheduler.scheduler - Added job "SchedulerService._run_cycle" to job store "default"
+2025-12-03 22:04:34 [INFO] apscheduler.scheduler - Scheduler started
+2025-12-03 22:04:34 [INFO] app.scheduler - ✓ Scheduler started successfully with interval 10 minutes (mode: advanced)
+2025-12-03 22:04:34 [INFO] werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.1.0.71:8000
+2025-12-03 22:04:34 [INFO] werkzeug - [33mPress CTRL+C to quit[0m
