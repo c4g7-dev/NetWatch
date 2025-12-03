@@ -68,6 +68,18 @@ A beautiful, self-hosted network performance monitoring dashboard with real-time
   <img src="assets/img2.png" alt="NetWatch Dashboard - Charts" width="49%">
 </p>
 
+### Homenet - Internal Network Monitoring
+<p align="center">
+  <img src="assets/homenet/img1.png" alt="Homenet Dashboard - Device Overview" width="32%">
+  <img src="assets/homenet/img2.png" alt="Homenet - Speed Charts" width="32%">
+  <img src="assets/homenet/img3.png" alt="Homenet - Bufferbloat Analysis" width="32%">
+</p>
+
+**Homenet Features:**
+- **Device Overview** (left): Discovered network devices with LAN/WiFi indicators
+- **Speed Charts** (center): Per-device speed history with download/upload trends
+- **Bufferbloat Analysis** (right): Idle Ping vs Loaded Ping vs Gateway Ping comparison
+
 ### Scheduler Configuration
 <p align="center">
   <img src="assets/time/img1.png" alt="Simple Mode - 24/7 Scheduling" width="32%">
