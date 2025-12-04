@@ -532,7 +532,7 @@ function updateCharts() {
     );
   }
   
-  // Jitter & Bufferbloat Chart (Idle Ping, Download Ping, Upload Ping, Jitter)
+  // Jitter & Bufferbloat Chart (Gateway Ping and Jitter)
   const jitterCtx = document.getElementById('jitter-chart');
   if (jitterCtx) {
     charts.jitter = renderLineChart(
@@ -540,27 +540,6 @@ function updateCharts() {
       jitterCtx.getContext('2d'),
       labels,
       [
-        {
-          label: 'Idle Ping',
-          data: pingIdle,
-          borderColor: '#22c55e',
-          backgroundColor: 'rgba(34, 197, 94, 0.1)',
-          fill: false,
-        },
-        {
-          label: 'Download Ping',
-          data: pingDown,
-          borderColor: '#f97316',
-          backgroundColor: 'rgba(249, 115, 22, 0.1)',
-          fill: false,
-        },
-        {
-          label: 'Upload Ping',
-          data: pingUp,
-          borderColor: '#facc15',
-          backgroundColor: 'rgba(250, 204, 21, 0.1)',
-          fill: false,
-        },
         {
           label: 'Gateway Ping',
           data: gatewayPing,
