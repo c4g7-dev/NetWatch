@@ -120,14 +120,12 @@ echo -e "${GREEN}✓ Systemd service installed${NC}\n"
 
 # Verify required directories exist before starting service
 echo "Verifying installation..."
-if [ ! -d "$INSTALL_DIR/data" ]; then
-    echo -e "${RED}Error: $INSTALL_DIR/data directory does not exist${NC}"
-    exit 1
-fi
-if [ ! -d "$INSTALL_DIR/logs" ]; then
-    echo -e "${RED}Error: $INSTALL_DIR/logs directory does not exist${NC}"
-    exit 1
-fi
+for dir in data logs bin; do
+    if [ ! -d "$INSTALL_DIR/$dir" ]; then
+        echo -e "${RED}Error: $INSTALL_DIR/$dir directory does not exist${NC}"
+        exit 1
+    fi
+done
 echo -e "${GREEN}✓ Required directories verified${NC}\n"
 
 # Start service
