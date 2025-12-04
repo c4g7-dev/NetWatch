@@ -532,7 +532,7 @@ function updateCharts() {
     );
   }
   
-  // Jitter & Bufferbloat Chart (Gateway Ping and Jitter)
+  // Jitter & Bufferbloat Chart (Jitter only - Gateway ping not available for Internet measurements)
   const jitterCtx = document.getElementById('jitter-chart');
   if (jitterCtx) {
     charts.jitter = renderLineChart(
@@ -540,13 +540,6 @@ function updateCharts() {
       jitterCtx.getContext('2d'),
       labels,
       [
-        {
-          label: 'Gateway Ping',
-          data: gatewayPing,
-          borderColor: '#06b6d4',
-          backgroundColor: 'rgba(6, 182, 212, 0.1)',
-          fill: false,
-        },
         {
           label: 'Jitter',
           data: jitter,
@@ -1003,6 +996,15 @@ async function loadSchedulerConfig() {
 // Initialization
 // ============================================================================
 async function init() {
+  // Apply saved view BEFORE any data loading to prevent visual glitch on F5
+  const savedView = localStorage.getItem('netwatch_current_view');
+  if (savedView === 'homenet') {
+    const internetView = document.getElementById('internet-view');
+    const homenetView = document.getElementById('homenet-view');
+    internetView.style.display = 'none';
+    homenetView.style.display = 'block';
+  }
+  
   attachEvents();
   initSchedulerModal();
   initViewToggle();
