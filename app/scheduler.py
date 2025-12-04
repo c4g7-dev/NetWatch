@@ -38,8 +38,8 @@ class SchedulerService:
             LOGGER.debug("Scheduler config file not found at %s, using defaults", self.config_file)
             return {
                 "mode": "simple",
-                "enabled": self.config.scheduler.enabled,
-                "interval": self.config.scheduler.interval_minutes
+                "enabled": True,
+                "interval": 30
             }
         
         try:
@@ -54,16 +54,16 @@ class SchedulerService:
             LOGGER.error("Using default configuration. Check file permissions.")
             return {
                 "mode": "simple",
-                "enabled": self.config.scheduler.enabled,
-                "interval": self.config.scheduler.interval_minutes
+                "enabled": True,
+                "interval": 30
             }
         except Exception as exc:
             LOGGER.error("Failed to load scheduler config from %s: %s", 
                         self.config_file, exc, exc_info=True)
             return {
                 "mode": "simple",
-                "enabled": self.config.scheduler.enabled,
-                "interval": self.config.scheduler.interval_minutes
+                "enabled": True,
+                "interval": 30
             }
 
     def _should_run_now(self, sched_config: dict) -> bool:
@@ -125,7 +125,7 @@ class SchedulerService:
         mode = sched_config.get("mode", "simple")
         
         if mode == "simple":
-            return sched_config.get("interval", self.config.scheduler.interval_minutes)
+            return sched_config.get("interval", 30)
         elif mode == "weekly":
             return sched_config.get("interval", 30)
         elif mode == "advanced":
@@ -137,7 +137,7 @@ class SchedulerService:
                     intervals.append(slot.get("interval", 30))
             return min(intervals) if intervals else 30
         
-        return self.config.scheduler.interval_minutes
+        return 30
 
     def start(self) -> None:
         if self.started:
@@ -173,6 +173,51 @@ class SchedulerService:
         if self.started:
             self.scheduler.shutdown(wait=False)
             self.started = False
+
+    def reload_config(self) -> None:
+        """Reload configuration and restart scheduler with new settings."""
+        LOGGER.info("Reloading scheduler configuration...")
+        sched_config = self._load_scheduler_config()
+        
+        # Check if scheduler should be disabled (for simple mode)
+        if sched_config.get("mode") == "simple" and not sched_config.get("enabled", True):
+            LOGGER.info("Scheduler disabled - shutting down")
+            if self.started:
+                self.shutdown()
+            return
+        
+        # If scheduler was shutdown, need to create a new instance
+        if not self.started:
+            self.scheduler = BackgroundScheduler(timezone="UTC")
+            
+        try:
+            # Remove existing job if scheduler is already running
+            if self.started:
+                try:
+                    self.scheduler.remove_job("scheduled-measurements")
+                    LOGGER.debug("Removed existing scheduled job")
+                except LookupError:
+                    LOGGER.debug("No existing job to remove")
+            
+            # Add job with new interval/trigger
+            interval = self._get_interval_minutes(sched_config)
+            trigger = IntervalTrigger(minutes=interval)
+            self.scheduler.add_job(self._run_cycle, trigger=trigger, id="scheduled-measurements")
+            
+            # Start scheduler if it's not already running
+            if not self.started:
+                self.scheduler.start()
+                self.started = True
+            
+            LOGGER.info(
+                "✓ Scheduler reconfigured successfully with interval %s minutes (mode: %s)", 
+                interval, 
+                sched_config.get("mode", "simple")
+            )
+        except (RuntimeError, ValueError) as exc:
+            LOGGER.error("✗ Failed to reconfigure scheduler: %s", exc, exc_info=True)
+            LOGGER.error("  Scheduled measurements may not run with the new configuration")
+
 
     def _run_cycle(self) -> None:
         """Run measurement cycle if allowed by schedule."""
