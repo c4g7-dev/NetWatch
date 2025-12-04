@@ -531,20 +531,44 @@ function updateCharts() {
     );
   }
   
-  // Jitter Chart
+  // Jitter & Bufferbloat Chart (Idle Ping, Download Ping, Upload Ping, Jitter)
   const jitterCtx = document.getElementById('jitter-chart');
   if (jitterCtx) {
     charts.jitter = renderLineChart(
       charts.jitter,
       jitterCtx.getContext('2d'),
       labels,
-      [{
-        label: 'Jitter',
-        data: jitter,
-        borderColor: '#a855f7',
-        backgroundColor: 'rgba(168, 85, 247, 0.1)',
-        fill: true,
-      }],
+      [
+        {
+          label: 'Idle Ping',
+          data: ping,
+          borderColor: '#22c55e',
+          backgroundColor: 'rgba(34, 197, 94, 0.1)',
+          fill: false,
+        },
+        {
+          label: 'Download Ping',
+          data: pingDown,
+          borderColor: '#f97316',
+          backgroundColor: 'rgba(249, 115, 22, 0.1)',
+          fill: false,
+        },
+        {
+          label: 'Upload Ping',
+          data: pingUp,
+          borderColor: '#facc15',
+          backgroundColor: 'rgba(250, 204, 21, 0.1)',
+          fill: false,
+        },
+        {
+          label: 'Jitter',
+          data: jitter,
+          borderColor: '#a855f7',
+          backgroundColor: 'rgba(168, 85, 247, 0.1)',
+          fill: false,
+          borderDash: [3, 3],
+        },
+      ],
       chartOptions
     );
   }
@@ -1248,6 +1272,8 @@ function updateInternalHistoryCharts() {
   const jitterData = sorted.map(m => m.jitter_ms || 0);
   const gatewayPingData = sorted.map(m => m.gateway_ping_ms || null);  // Use null for missing
   const localLatencyData = sorted.map(m => m.local_latency_ms || null);  // Use null for missing
+  const pingDownloadData = sorted.map(m => m.ping_during_download_ms || null);  // Download ping
+  const pingUploadData = sorted.map(m => m.ping_during_upload_ms || null);  // Upload ping
   // Loaded ping: maximum of ping during download or upload (shows bufferbloat)
   const loadedPingData = sorted.map(m => {
     const dlPing = m.ping_during_download_ms;
@@ -1366,15 +1392,15 @@ function updateInternalHistoryCharts() {
     }
   }
   
-  // Internal Latency History Chart (Ping, Jitter, Gateway, Local Latency)
+  // Internal Latency History Chart (Idle Ping, Download Ping, Upload Ping, Jitter)
   const latencyCtx = document.getElementById('internal-latency-chart');
   if (latencyCtx) {
     if (internalCharts.latency) {
       internalCharts.latency.data.labels = labels;
       internalCharts.latency.data.datasets[0].data = pingData;
-      internalCharts.latency.data.datasets[1].data = jitterData;
-      internalCharts.latency.data.datasets[2].data = gatewayPingData;
-      internalCharts.latency.data.datasets[3].data = localLatencyData;
+      internalCharts.latency.data.datasets[1].data = pingDownloadData;
+      internalCharts.latency.data.datasets[2].data = pingUploadData;
+      internalCharts.latency.data.datasets[3].data = jitterData;
       internalCharts.latency.update();
     } else {
       internalCharts.latency = new Chart(latencyCtx.getContext('2d'), {
@@ -1383,34 +1409,33 @@ function updateInternalHistoryCharts() {
           labels,
           datasets: [
             {
-              label: 'Ping (ms)',
+              label: 'Idle Ping (ms)',
               data: pingData,
+              borderColor: '#22c55e',
+              backgroundColor: 'rgba(34, 197, 94, 0.1)',
+              fill: true,
+            },
+            {
+              label: 'Download Ping (ms)',
+              data: pingDownloadData,
               borderColor: '#f97316',
               backgroundColor: 'rgba(249, 115, 22, 0.1)',
-              fill: true,
+              fill: false,
+            },
+            {
+              label: 'Upload Ping (ms)',
+              data: pingUploadData,
+              borderColor: '#facc15',
+              backgroundColor: 'rgba(250, 204, 21, 0.1)',
+              fill: false,
             },
             {
               label: 'Jitter (ms)',
               data: jitterData,
               borderColor: '#a855f7',
               backgroundColor: 'rgba(168, 85, 247, 0.1)',
-              fill: true,
-            },
-            {
-              label: 'Gateway Ping (ms)',
-              data: gatewayPingData,
-              borderColor: '#06b6d4',
-              backgroundColor: 'rgba(6, 182, 212, 0.1)',
               fill: false,
-              borderDash: [5, 5],
-            },
-            {
-              label: 'Local Latency (ms)',
-              data: localLatencyData,
-              borderColor: '#84cc16',
-              backgroundColor: 'rgba(132, 204, 22, 0.1)',
-              fill: false,
-              borderDash: [2, 8],  // More distinct dash pattern
+              borderDash: [3, 3],
             },
           ],
         },
@@ -1431,14 +1456,15 @@ function updateInternalHistoryCharts() {
     }
   }
   
-  // Bufferbloat Chart (Latency Under Load) - Shows idle ping vs loaded ping
+  // Bufferbloat Chart (Latency Under Load) - Shows idle vs download vs upload vs gateway ping
   const bufferbloatCtx = document.getElementById('internal-bufferbloat-chart');
   if (bufferbloatCtx) {
     if (internalCharts.bufferbloat) {
       internalCharts.bufferbloat.data.labels = labels;
       internalCharts.bufferbloat.data.datasets[0].data = pingData;
-      internalCharts.bufferbloat.data.datasets[1].data = loadedPingData;
-      internalCharts.bufferbloat.data.datasets[2].data = gatewayPingData;
+      internalCharts.bufferbloat.data.datasets[1].data = pingDownloadData;
+      internalCharts.bufferbloat.data.datasets[2].data = pingUploadData;
+      internalCharts.bufferbloat.data.datasets[3].data = gatewayPingData;
       internalCharts.bufferbloat.update();
     } else {
       internalCharts.bufferbloat = new Chart(bufferbloatCtx.getContext('2d'), {
@@ -1455,10 +1481,18 @@ function updateInternalHistoryCharts() {
               borderWidth: 2,
             },
             {
-              label: 'Loaded Ping (ms)',
-              data: loadedPingData,
-              borderColor: '#ef4444',
-              backgroundColor: 'rgba(239, 68, 68, 0.1)',
+              label: 'Download Ping (ms)',
+              data: pingDownloadData,
+              borderColor: '#f97316',
+              backgroundColor: 'rgba(249, 115, 22, 0.1)',
+              fill: false,
+              borderWidth: 2,
+            },
+            {
+              label: 'Upload Ping (ms)',
+              data: pingUploadData,
+              borderColor: '#facc15',
+              backgroundColor: 'rgba(250, 204, 21, 0.1)',
               fill: false,
               borderWidth: 2,
             },

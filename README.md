@@ -102,49 +102,36 @@ A beautiful, self-hosted network performance monitoring dashboard with real-time
 
 ### Installation
 
-#### 🐧 Linux - Automated Installation (Recommended)
-
-Install NetWatch as a **systemd service** for production use:
+#### 🐧 Linux Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/c4g7-dev/netwatch.git
 cd netwatch
 
-# Run the Linux installer (requires sudo)
-sudo bash install-linux.sh
+# Install Python 3.10+ and dependencies
+sudo apt update
+sudo apt install python3 python3-venv python3-pip
+
+# If only python3 is installed (no 'python' command), create symlink:
+sudo ln -s /usr/bin/python3 /usr/bin/python
+
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Download Ookla Speedtest CLI (automatic on first run)
+python main.py
 ```
 
-**📖 [Full Linux Setup Guide →](LINUX-GUIDE.md)** - Service management, firewall, troubleshooting, and more
+**📖 See [netwatch.service](#systemd-service-example) below for running as a systemd service**
 
-The installer will:
-- ✅ Install system dependencies (python3-venv, iperf3)
-- ✅ Create dedicated `netwatch` user
-- ✅ Install to `/opt/netwatch`
-- ✅ Set up Python virtual environment
-- ✅ Download Ookla Speedtest CLI binary
-- ✅ Configure systemd service
-- ✅ Start NetWatch automatically
-
-**Service Management:**
-```bash
-# Check status
-systemctl status netwatch
-
-# View live logs
-journalctl -u netwatch -f
-
-# Restart service
-sudo systemctl restart netwatch
-
-# Stop service
-sudo systemctl stop netwatch
-
-# Disable auto-start
-sudo systemctl disable netwatch
-```
-
-#### 🪟 Windows / 💻 Manual Installation
+#### 🪟 Windows Installation
 
 ```bash
 # Clone the repository
@@ -155,16 +142,10 @@ cd netwatch
 python -m venv .venv
 
 # Activate virtual environment
-# Windows:
 .venv\Scripts\activate
-# Linux/macOS:
-source .venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
-
-# Run the installer
-python installer.py
 
 # Start the application
 python main.py
@@ -172,10 +153,6 @@ python main.py
 
 ### 🏃 Running NetWatch
 
-#### Production (Linux with systemd)
-NetWatch runs automatically as a service. Access at: **http://your-server-ip:8000**
-
-#### Development / Windows
 ```bash
 # Activate virtual environment
 # Windows:
@@ -188,6 +165,45 @@ python main.py
 ```
 
 The dashboard will be available at: **http://localhost:8000**
+
+### systemd Service Example
+
+Create `/etc/systemd/system/netwatch.service`:
+
+```ini
+[Unit]
+Description=NetWatch - Network Performance Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/path/to/netwatch
+Environment="PATH=/path/to/netwatch/.venv/bin"
+ExecStart=/path/to/netwatch/.venv/bin/python main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Replace `YOUR_USERNAME` and `/path/to/netwatch` with your actual values, then:
+
+```bash
+# Reload systemd
+sudo systemctl daemon-reload
+
+# Enable and start service
+sudo systemctl enable netwatch
+sudo systemctl start netwatch
+
+# Check status
+systemctl status netwatch
+
+# View logs
+journalctl -u netwatch -f
+```
 
 ### 🔒 Linux Firewall Configuration
 
