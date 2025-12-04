@@ -353,6 +353,30 @@ pip install -r requirements.txt --upgrade
 ### Update Ookla Binary
 ```bash
 python updater.py --component speedtest
+```
+
+## 🗑️ Uninstallation
+
+### Linux (systemd service)
+```bash
+cd /opt/netwatch
+sudo bash uninstall-linux.sh
+```
+
+The uninstall script will:
+- ✅ Stop and disable the NetWatch service
+- ✅ Remove systemd service files
+- ✅ Stop internal speedtest server
+- ✅ Optionally remove all data or preserve it for later use
+- ✅ Optionally remove the service user
+
+**Interactive Options:**
+- You'll be asked whether to remove all data (measurements, config, logs)
+- You'll be asked whether to remove the `netwatch` system user
+- Data is backed up to `/tmp` before removal if you choose to preserve it
+
+### Windows / Manual Installation
+Simply delete the NetWatch directory after stopping any running processes.
   -p 8000:8000 \
   -v ./data:/app/data \
   -v ./config.yaml:/app/config.yaml \
