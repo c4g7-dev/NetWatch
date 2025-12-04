@@ -121,14 +121,17 @@ else
             echo -e "${GREEN}✓ Data backed up to: $BACKUP_DIR${NC}"
         fi
         
-        # Remove application files but keep data
-        cd "$INSTALL_DIR"
-        find . -maxdepth 1 -type f -delete 2>/dev/null || true
-        rm -rf .venv app bin __pycache__ 2>/dev/null || true
-        
-        # Keep data, logs, and config.yaml
-        echo -e "${GREEN}✓ Application files removed, data preserved in: $INSTALL_DIR/data${NC}"
-        echo -e "${BLUE}  To completely remove data later, run: sudo rm -rf $INSTALL_DIR${NC}"
+        # Remove application files but keep data - safely change directory
+        if cd "$INSTALL_DIR" 2>/dev/null; then
+            find . -maxdepth 1 -type f -delete 2>/dev/null || true
+            rm -rf .venv app bin __pycache__ 2>/dev/null || true
+            
+            # Keep data, logs, and config.yaml
+            echo -e "${GREEN}✓ Application files removed, data preserved in: $INSTALL_DIR/data${NC}"
+            echo -e "${BLUE}  To completely remove data later, run: sudo rm -rf $INSTALL_DIR${NC}"
+        else
+            echo -e "${RED}Failed to access installation directory: $INSTALL_DIR${NC}"
+        fi
     else
         echo -e "${YELLOW}Installation directory not found${NC}"
     fi

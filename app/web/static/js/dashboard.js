@@ -2472,6 +2472,13 @@ function renderDeviceHistoryChart(measurements) {
           padding: 10,
           cornerRadius: 8,
           callbacks: {
+            /**
+             * Format tooltip label for chart data points
+             * @param {Object} context - Chart.js tooltip context
+             * @param {number|null} context.parsed.y - The Y-axis value
+             * @param {Object} context.dataset - Dataset containing the label
+             * @returns {string} Formatted label string
+             */
             label: function(context) {
               const value = context.parsed.y;
               if (value === null || value === undefined || typeof value !== 'number') {
