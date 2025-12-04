@@ -5,6 +5,24 @@ All notable changes to NetWatch will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.4] - 2025-01-23
+
+### Changed
+- **Installation Script** - Simplified install-linux.sh to only install Python dependencies (removed automated service setup)
+- **Internet Tab Charts** - Simplified Jitter & Bufferbloat chart to show only Gateway Ping and Jitter (removed Idle/Download/Upload Ping for clarity)
+- **Homenet Tab Charts** - Consolidated duplicate charts into single comprehensive "Ping Analysis" chart showing all 5 metrics: Idle Ping, Download Ping, Upload Ping, Gateway Ping, and Jitter
+- **README** - Updated installation documentation with manual and script-based options, improved systemd service examples
+
+### Fixed
+- **JavaScript Error** - Fixed undefined 'ping' variable error in Internet tab (changed to 'pingIdle')
+- **Chart Consolidation** - Removed duplicate Homenet Latency chart, keeping only the comprehensive Ping Analysis chart
+
+### Added
+- **Chart Enhancement** - Added Gateway Ping to Internet tab Jitter & Bufferbloat chart
+- **Chart Enhancement** - Added Jitter to Homenet Ping Analysis chart (now shows all 5 metrics in one view)
+
+---
+
 ## [1.3.3] - 2025-01-23
 
 ### Changed

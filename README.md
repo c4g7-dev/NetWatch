@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.3.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.3.4-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/Flask-3.0+-green.svg" alt="Flask">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
@@ -104,12 +104,29 @@ A beautiful, self-hosted network performance monitoring dashboard with real-time
 
 #### 🐧 Linux Installation
 
+**Option 1: Quick Setup Script (Recommended)**
 ```bash
 # Clone the repository
 git clone https://github.com/c4g7-dev/netwatch.git
 cd netwatch
 
-# Install Python 3.10+ and dependencies
+# Run setup script
+bash install-linux.sh
+
+# Activate virtual environment
+source .venv/bin/activate
+
+# Start NetWatch
+python main.py
+```
+
+**Option 2: Manual Installation**
+```bash
+# Clone the repository
+git clone https://github.com/c4g7-dev/netwatch.git
+cd netwatch
+
+# Install Python 3.10+ if not already installed
 sudo apt update
 sudo apt install python3 python3-venv python3-pip
 
@@ -125,11 +142,11 @@ source .venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Download Ookla Speedtest CLI (automatic on first run)
+# Start NetWatch (Ookla CLI downloads automatically on first run)
 python main.py
 ```
 
-**📖 See [netwatch.service](#systemd-service-example) below for running as a systemd service**
+**📖 See [systemd service example](#systemd-service-example) below for running as a background service**
 
 #### 🪟 Windows Installation
 
@@ -271,22 +288,19 @@ logging:
 
 ## 🔧 Advanced Usage
 
-### 🐧 Linux Cron Jobs (Alternative to systemd)
+### Alternative: Cron Jobs
 
-If you prefer cron over systemd:
+**Note:** The built-in scheduler (configured via dashboard) is recommended. However, if you need cron:
 
 ```bash
 # Edit crontab
 crontab -e
 
-# Add this line to run speedtest every 30 minutes
-*/30 * * * * /opt/netwatch/.venv/bin/python /opt/netwatch/main.py --run-once >> /opt/netwatch/logs/cron.log 2>&1
-
-# Or run the Flask server in the background (not recommended)
-@reboot cd /opt/netwatch && /opt/netwatch/.venv/bin/python main.py >> /opt/netwatch/logs/app.log 2>&1 &
+# Run NetWatch server on boot
+@reboot cd /path/to/netwatch && /path/to/netwatch/.venv/bin/python main.py >> /path/to/netwatch/logs/app.log 2>&1 &
 ```
 
-**Note:** Using systemd is recommended over cron for better process management, automatic restarts, and proper logging.
+**Important:** systemd (see above) is strongly recommended for production use - provides automatic restarts, better logging, and easier management.
 
 ### Manual Test Triggers
 
@@ -349,21 +363,26 @@ curl "http://localhost:8000/api/export/csv?start=2025-12-01T00:00:00Z&end=2025-1
 
 ## 🔄 Updating
 
-### Linux (systemd service)
+### If running as systemd service:
 ```bash
-cd /opt/netwatch
+cd /path/to/netwatch
 sudo systemctl stop netwatch
-sudo -u netwatch git pull origin master
-sudo -u netwatch .venv/bin/pip install -r requirements.txt --upgrade
+git pull origin master
+source .venv/bin/activate
+pip install -r requirements.txt --upgrade
 sudo systemctl start netwatch
 ```
 
-### Windows / Manual Installation
+### If running manually:
 ```bash
 cd netwatch
 git pull origin master
-.venv\Scripts\activate  # or: source .venv/bin/activate
+# Windows:
+.venv\Scripts\activate
+# Linux/macOS:
+source .venv/bin/activate
 pip install -r requirements.txt --upgrade
+# Restart: python main.py
 ```
 
 ### Update Ookla Binary
@@ -373,25 +392,21 @@ python updater.py --component speedtest
 
 ## 🗑️ Uninstallation
 
-### Linux (systemd service)
+### If running as systemd service:
 ```bash
-cd /opt/netwatch
-sudo bash uninstall-linux.sh
+# Stop and disable service
+sudo systemctl stop netwatch
+sudo systemctl disable netwatch
+
+# Remove service file
+sudo rm /etc/systemd/system/netwatch.service
+sudo systemctl daemon-reload
+
+# Remove application directory
+rm -rf /path/to/netwatch
 ```
 
-The uninstall script will:
-- ✅ Stop and disable the NetWatch service
-- ✅ Remove systemd service files
-- ✅ Stop internal speedtest server
-- ✅ Optionally remove all data or preserve it for later use
-- ✅ Optionally remove the service user
-
-**Interactive Options:**
-- You'll be asked whether to remove all data (measurements, config, logs)
-- You'll be asked whether to remove the `netwatch` system user
-- Data is backed up to `/tmp` before removal if you choose to preserve it
-
-### Windows / Manual Installation
+### Windows / Manual Installation:
 Simply delete the NetWatch directory after stopping any running processes.
 
 ## 🛠️ Troubleshooting
