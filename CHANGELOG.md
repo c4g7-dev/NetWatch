@@ -5,6 +5,23 @@ All notable changes to NetWatch will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.5] - 2025-12-04
+
+### Added
+- **Gateway Ping for Internet Tab** - Internet speedtests now measure and display gateway ping alongside jitter in the "Jitter & Bufferbloat" chart
+- **Database Migration** - Automatic column addition for gateway_ping_ms in existing databases
+
+### Fixed
+- **Gateway Ping Data Collection** - Fixed gateway ping not being collected during Internet speedtests (was only collected for Homenet)
+- **API Response** - Added gateway_ping_ms to Internet measurements API response
+- **Measurement Persistence** - Fixed gateway_ping_ms not being saved to database for Internet measurements
+- **F5 Refresh** - Fixed browser refresh briefly showing Internet tab when on Homenet tab (view persistence now applied before data loading)
+
+### Changed
+- **Cache Version** - Updated to v=40 for browser cache busting
+
+---
+
 ## [1.3.4] - 2025-01-23
 
 ### Changed
