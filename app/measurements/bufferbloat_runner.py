@@ -13,6 +13,7 @@ from typing import Dict, Optional, Tuple
 
 from ..config import AppConfig
 from .models import MeasurementResult
+from .speedtest_runner import _get_default_gateway, _ping_gateway
 
 LOGGER = logging.getLogger(__name__)
 
@@ -54,6 +55,13 @@ def run_bufferbloat_test(config: AppConfig) -> Optional[MeasurementResult]:
         "download_iperf": download_result.raw_json,
         "upload_iperf": upload_result.raw_json,
     }
+    
+    # Measure gateway ping
+    gateway_ping = None
+    gateway_ip = _get_default_gateway()
+    if gateway_ip:
+        gateway_ping = _ping_gateway(gateway_ip)
+        LOGGER.debug(f"Gateway ping to {gateway_ip}: {gateway_ping}ms")
 
     return MeasurementResult(
         measurement_type="bufferbloat",
@@ -67,6 +75,7 @@ def run_bufferbloat_test(config: AppConfig) -> Optional[MeasurementResult]:
         ping_during_upload_ms=upload_ping.avg_ms,
         download_latency_ms=download_ping.max_ms,
         upload_latency_ms=upload_ping.max_ms,
+        gateway_ping_ms=gateway_ping,
         bytes_used=total_bytes,
         raw_json=raw_payload,
     )

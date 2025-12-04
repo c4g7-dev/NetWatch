@@ -38,6 +38,7 @@ class MeasurementManager:
                 ping_during_upload_ms=result.ping_during_upload_ms,
                 download_latency_ms=result.download_latency_ms,
                 upload_latency_ms=result.upload_latency_ms,
+                gateway_ping_ms=result.gateway_ping_ms,
                 bytes_used=result.bytes_used,
                 raw_json=json.dumps(result.raw_json),
             )
@@ -108,5 +109,6 @@ class MeasurementManager:
             "ping_under_upload": measurement.ping_during_upload_ms,
             "download_latency": measurement.download_latency_ms,
             "upload_latency": measurement.upload_latency_ms,
+            "gateway_ping_ms": measurement.gateway_ping_ms,
             "bytes_used": measurement.bytes_used,
         }
