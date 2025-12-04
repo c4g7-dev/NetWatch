@@ -377,22 +377,8 @@ The uninstall script will:
 
 ### Windows / Manual Installation
 Simply delete the NetWatch directory after stopping any running processes.
-  -p 8000:8000 \
-  -v ./data:/app/data \
-  -v ./config.yaml:/app/config.yaml \
-  c4g7dev/netwatch:latest
-```
 
-## 🔄 Updating
-
-### Update Ookla Binary
-```bash
-python updater.py --component speedtest
-```
-
-### Update Application
-```bash
-git pull origin main
+## 📡 API Endpoints
 pip install -r requirements.txt --upgrade
 ```
 
