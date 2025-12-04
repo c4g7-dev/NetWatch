@@ -964,10 +964,13 @@ class InternalNetworkManager:
         This prevents storing empty measurements from failed speedtests.
         """
         # Validate that we have actual speedtest data before storing
-        if results.get("download_mbps") is None or results.get("upload_mbps") is None:
+        download_mbps = results.get("download_mbps")
+        upload_mbps = results.get("upload_mbps")
+        
+        if download_mbps is None or upload_mbps is None:
             LOGGER.warning(
                 f"Skipping measurement storage - incomplete data: "
-                f"download={results.get('download_mbps')}, upload={results.get('upload_mbps')}"
+                f"download={download_mbps}, upload={upload_mbps}"
             )
             return
         
@@ -982,8 +985,8 @@ class InternalNetworkManager:
                 timestamp=datetime.utcnow(),
                 device_id=device_id,  # Can be None if device not resolved
                 connection_type=connection_type or "unknown",
-                download_mbps=results.get("download_mbps"),
-                upload_mbps=results.get("upload_mbps"),
+                download_mbps=download_mbps,
+                upload_mbps=upload_mbps,
                 ping_idle_ms=results.get("ping_idle_ms"),
                 ping_loaded_ms=results.get("ping_loaded_ms"),
                 jitter_ms=results.get("jitter_ms"),
@@ -997,7 +1000,7 @@ class InternalNetworkManager:
                 raw_json=json.dumps(results),
             )
             session.add(measurement)
-            LOGGER.info(f"Measurement stored successfully: download={results['download_mbps']:.1f}Mbps, upload={results['upload_mbps']:.1f}Mbps")
+            LOGGER.info(f"Measurement stored successfully: download={download_mbps:.1f}Mbps, upload={upload_mbps:.1f}Mbps")
     
     def get_measurements(
         self,
