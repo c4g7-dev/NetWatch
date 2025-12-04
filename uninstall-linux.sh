@@ -15,6 +15,7 @@ NC='\033[0m' # No Color
 INSTALL_DIR="/opt/netwatch"
 SERVICE_USER="netwatch"
 SERVICE_FILE="/etc/systemd/system/netwatch.service"
+BACKUP_DIR=""  # Will be set if data is backed up
 
 # Check if running as root
 if [ "$EUID" -ne 0 ]; then 
