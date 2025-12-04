@@ -176,32 +176,39 @@ class SchedulerService:
 
     def reload_config(self) -> None:
         """Reload configuration and restart scheduler with new settings."""
-        if not self.started:
-            # If scheduler was never started, just start it now
-            self.start()
-            return
-        
         LOGGER.info("Reloading scheduler configuration...")
         sched_config = self._load_scheduler_config()
         
         # Check if scheduler should be disabled (for simple mode)
         if sched_config.get("mode") == "simple" and not sched_config.get("enabled", True):
             LOGGER.info("Scheduler disabled - shutting down")
-            self.shutdown()
+            if self.started:
+                self.shutdown()
             return
         
+        # If scheduler was shutdown, need to restart it completely
+        if not self.started:
+            # Create a new scheduler instance
+            self.scheduler = BackgroundScheduler(timezone="UTC")
+            
         try:
-            # Remove existing job
-            try:
-                self.scheduler.remove_job("scheduled-measurements")
-                LOGGER.debug("Removed existing scheduled job")
-            except Exception as exc:
-                LOGGER.debug("No existing job to remove: %s", exc)
+            # Remove existing job if it exists
+            if self.started:
+                try:
+                    self.scheduler.remove_job("scheduled-measurements")
+                    LOGGER.debug("Removed existing scheduled job")
+                except Exception as exc:
+                    LOGGER.debug("No existing job to remove: %s", exc)
             
             # Add job with new interval/trigger
             interval = self._get_interval_minutes(sched_config)
             trigger = IntervalTrigger(minutes=interval)
             self.scheduler.add_job(self._run_cycle, trigger=trigger, id="scheduled-measurements")
+            
+            # Start scheduler if it's not already running
+            if not self.started:
+                self.scheduler.start()
+                self.started = True
             
             LOGGER.info(
                 "✓ Scheduler reconfigured successfully with interval %s minutes (mode: %s)", 
