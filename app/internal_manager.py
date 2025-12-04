@@ -821,14 +821,23 @@ class InternalNetworkManager:
                     capture_output=True, text=True, timeout=10
                 )
                 for line in result.stdout.split('\n'):
-                    # Look for routes to private networks
-                    if any(net in line for net in ['192.168.', '10.', '172.16.', '172.17.', '172.18.', '172.19.', 
-                                                     '172.20.', '172.21.', '172.22.', '172.23.', '172.24.', 
-                                                     '172.25.', '172.26.', '172.27.', '172.28.', '172.29.',
-                                                     '172.30.', '172.31.']):
-                        match = re.search(r'via\s+(\d+\.\d+\.\d+\.\d+)', line)
-                        if match:
-                            gateway = match.group(1)
+                    # Look for routes to private networks (RFC 1918)
+                    match = re.search(r'via\s+(\d+\.\d+\.\d+\.\d+)', line)
+                    if match:
+                        gateway = match.group(1)
+                        # Check if gateway is in private IP ranges
+                        if (gateway.startswith('192.168.') or 
+                            gateway.startswith('10.') or
+                            (gateway.startswith('172.') and '.' in gateway)):
+                            # Validate 172.16-31.x.x range
+                            parts = gateway.split('.')
+                            if len(parts) >= 2:
+                                try:
+                                    second_octet = int(parts[1])
+                                    if gateway.startswith('172.') and not (16 <= second_octet <= 31):
+                                        continue  # Not in RFC 1918 range
+                                except (ValueError, IndexError):
+                                    continue  # Malformed IP
                             if gateway not in gateways:
                                 gateways.append(gateway)
         except Exception as e:
@@ -837,10 +846,20 @@ class InternalNetworkManager:
         # Prefer private network gateways over VPN gateways
         # Check if any gateway is in common private ranges (more likely to be LAN)
         for gateway in gateways:
-            if gateway.startswith('192.168.') or gateway.startswith('10.') or \
-               (gateway.startswith('172.') and 16 <= int(gateway.split('.')[1]) <= 31):
-                LOGGER.info(f"Selected LAN gateway: {gateway}")
-                return gateway
+            try:
+                parts = gateway.split('.')
+                if len(parts) != 4:
+                    continue
+                if gateway.startswith('192.168.') or gateway.startswith('10.'):
+                    LOGGER.info(f"Selected LAN gateway: {gateway}")
+                    return gateway
+                if gateway.startswith('172.'):
+                    second_octet = int(parts[1])
+                    if 16 <= second_octet <= 31:
+                        LOGGER.info(f"Selected LAN gateway: {gateway}")
+                        return gateway
+            except (ValueError, IndexError):
+                continue  # Skip malformed IPs
         
         # Fall back to first gateway found
         if gateways:
