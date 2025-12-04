@@ -1175,10 +1175,9 @@ async function loadInternalSummary() {
         upload_speed: data.latest.upload_mbps,
         latency: data.latest.ping_idle_ms,
         jitter: data.latest.jitter_ms,
-        gateway_ping: data.latest.gateway_ping_ms || null,
-        local_latency: data.latest.local_latency_ms || null,
-        bufferbloat_grade: data.latest.bufferbloat_grade,
-        ping_loaded: data.latest.ping_loaded_ms || Math.max(data.latest.ping_during_download_ms || 0, data.latest.ping_during_upload_ms || 0) || null
+        gateway_ping: data.latest.gateway_ping_ms,
+        local_latency: data.latest.local_latency_ms,
+        bufferbloat_grade: data.latest.bufferbloat_grade
       };
       console.log('Mapped data for updateInternalMetrics:', mappedData);
       updateInternalMetrics(mappedData);
@@ -2130,8 +2129,7 @@ function renderDeviceTable() {
 // ============================================================================
 function updateDeviceCharts() {
   const lanDevices = internalState.devices.filter(d => d.connection_type === 'lan');
-  // Include 'unknown' connection type devices with WiFi devices for display purposes
-  const wifiDevices = internalState.devices.filter(d => d.connection_type === 'wifi' || d.connection_type === 'unknown');
+  const wifiDevices = internalState.devices.filter(d => d.connection_type === 'wifi');
   
   // LAN Devices Chart
   const lanCtx = document.getElementById('lan-devices-chart');
@@ -2188,16 +2186,13 @@ function updateDeviceCharts() {
     }
   }
   
-  // WiFi/Wireless Devices Chart (includes 'unknown' connection types)
+  // WiFi Devices Chart
   const wifiCtx = document.getElementById('wifi-devices-chart');
   if (wifiCtx) {
-    const actualWifi = wifiDevices.filter(d => d.connection_type === 'wifi').length;
-    const unknownCount = wifiDevices.filter(d => d.connection_type === 'unknown').length;
-    
     if (wifiDevices.length === 0) {
-      // No WiFi/unknown devices found - destroy chart and show placeholder
+      // No WiFi devices found - destroy chart and show placeholder
       internalCharts.wifiDevices = destroyChartIfExists(internalCharts.wifiDevices);
-      showChartPlaceholder(wifiCtx, 'No WiFi/Wireless devices found');
+      showChartPlaceholder(wifiCtx, 'No WiFi devices found');
     } else {
       const labels = wifiDevices.map(d => d.friendly_name || d.hostname || d.ip_address);
       const downloadData = wifiDevices.map(d => d.last_download);
@@ -2206,15 +2201,10 @@ function updateDeviceCharts() {
       const hasData = downloadData.some(v => v !== null && v !== undefined) || 
                       uploadData.some(v => v !== null && v !== undefined);
       
-      // Build placeholder message based on device types
-      const typeDesc = unknownCount > 0 && actualWifi === 0 ? 
-        `${unknownCount} device(s) (unclassified)` : 
-        `${wifiDevices.length} device(s)`;
-      
       if (!hasData) {
         // Devices exist but no tests run - destroy chart and show placeholder with device names
         internalCharts.wifiDevices = destroyChartIfExists(internalCharts.wifiDevices);
-        showChartPlaceholder(wifiCtx, `${typeDesc} - Run tests to see speeds`);
+        showChartPlaceholder(wifiCtx, `${wifiDevices.length} device(s) - Run tests to see speeds`);
       } else {
         if (internalCharts.wifiDevices) {
           internalCharts.wifiDevices.data.labels = labels;

@@ -362,6 +362,8 @@ def _calculate_delta(latest: dict, previous: dict) -> dict:
         "jitter",
         "ping_under_download",
         "ping_under_upload",
+        "download_latency",
+        "upload_latency",
     ]
     return {field: diff(field) for field in fields}
 
