@@ -36,10 +36,10 @@ def _load_scheduler_config() -> dict:
         return DEFAULT_SCHEDULER_CONFIG.copy()
     
     try:
-        with open(config_file, "r") as f:
+        with open(config_file, "r", encoding="utf-8") as f:
             return json.load(f)
-    except (json.JSONDecodeError, FileNotFoundError) as exc:
-        LOGGER.warning("Failed to load scheduler config: %s. Using defaults.", exc)
+    except json.JSONDecodeError as exc:
+        LOGGER.warning("Failed to parse scheduler config: %s. Using defaults.", exc)
         return DEFAULT_SCHEDULER_CONFIG.copy()
     except Exception as exc:
         LOGGER.error("Unexpected error loading scheduler config: %s. Using defaults.", exc)
