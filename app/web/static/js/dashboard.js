@@ -404,6 +404,7 @@ function updateCharts() {
   const pingDown = state.filtered.map((item) => item.ping_under_download);
   const pingUp = state.filtered.map((item) => item.ping_under_upload);
   const jitter = state.filtered.map((item) => item.jitter);
+  const gatewayPing = state.filtered.map((item) => item.gateway_ping_ms);
   
   const chartOptions = {
     responsive: true,
@@ -541,7 +542,7 @@ function updateCharts() {
       [
         {
           label: 'Idle Ping',
-          data: ping,
+          data: pingIdle,
           borderColor: '#22c55e',
           backgroundColor: 'rgba(34, 197, 94, 0.1)',
           fill: false,
@@ -558,6 +559,13 @@ function updateCharts() {
           data: pingUp,
           borderColor: '#facc15',
           backgroundColor: 'rgba(250, 204, 21, 0.1)',
+          fill: false,
+        },
+        {
+          label: 'Gateway Ping',
+          data: gatewayPing,
+          borderColor: '#06b6d4',
+          backgroundColor: 'rgba(6, 182, 212, 0.1)',
           fill: false,
         },
         {
@@ -1392,71 +1400,7 @@ function updateInternalHistoryCharts() {
     }
   }
   
-  // Internal Latency History Chart (Idle Ping, Download Ping, Upload Ping, Jitter)
-  const latencyCtx = document.getElementById('internal-latency-chart');
-  if (latencyCtx) {
-    if (internalCharts.latency) {
-      internalCharts.latency.data.labels = labels;
-      internalCharts.latency.data.datasets[0].data = pingData;
-      internalCharts.latency.data.datasets[1].data = pingDownloadData;
-      internalCharts.latency.data.datasets[2].data = pingUploadData;
-      internalCharts.latency.data.datasets[3].data = jitterData;
-      internalCharts.latency.update();
-    } else {
-      internalCharts.latency = new Chart(latencyCtx.getContext('2d'), {
-        type: 'line',
-        data: {
-          labels,
-          datasets: [
-            {
-              label: 'Idle Ping (ms)',
-              data: pingData,
-              borderColor: '#22c55e',
-              backgroundColor: 'rgba(34, 197, 94, 0.1)',
-              fill: true,
-            },
-            {
-              label: 'Download Ping (ms)',
-              data: pingDownloadData,
-              borderColor: '#f97316',
-              backgroundColor: 'rgba(249, 115, 22, 0.1)',
-              fill: false,
-            },
-            {
-              label: 'Upload Ping (ms)',
-              data: pingUploadData,
-              borderColor: '#facc15',
-              backgroundColor: 'rgba(250, 204, 21, 0.1)',
-              fill: false,
-            },
-            {
-              label: 'Jitter (ms)',
-              data: jitterData,
-              borderColor: '#a855f7',
-              backgroundColor: 'rgba(168, 85, 247, 0.1)',
-              fill: false,
-              borderDash: [3, 3],
-            },
-          ],
-        },
-        options: {
-          ...chartOptions,
-          scales: {
-            ...chartOptions.scales,
-            y: {
-              ...chartOptions.scales.y,
-              ticks: {
-                ...chartOptions.scales.y.ticks,
-                callback: (value) => `${value} ms`,
-              },
-            },
-          },
-        },
-      });
-    }
-  }
-  
-  // Bufferbloat Chart (Latency Under Load) - Shows idle vs download vs upload vs gateway ping
+  // Bufferbloat Chart (Latency Under Load) - Shows idle vs download vs upload vs gateway ping + jitter
   const bufferbloatCtx = document.getElementById('internal-bufferbloat-chart');
   if (bufferbloatCtx) {
     if (internalCharts.bufferbloat) {
@@ -1465,6 +1409,7 @@ function updateInternalHistoryCharts() {
       internalCharts.bufferbloat.data.datasets[1].data = pingDownloadData;
       internalCharts.bufferbloat.data.datasets[2].data = pingUploadData;
       internalCharts.bufferbloat.data.datasets[3].data = gatewayPingData;
+      internalCharts.bufferbloat.data.datasets[4].data = jitterData;
       internalCharts.bufferbloat.update();
     } else {
       internalCharts.bufferbloat = new Chart(bufferbloatCtx.getContext('2d'), {
@@ -1504,6 +1449,15 @@ function updateInternalHistoryCharts() {
               fill: false,
               borderWidth: 2,
               borderDash: [5, 5],
+            },
+            {
+              label: 'Jitter (ms)',
+              data: jitterData,
+              borderColor: '#a855f7',
+              backgroundColor: 'rgba(168, 85, 247, 0.1)',
+              fill: false,
+              borderWidth: 2,
+              borderDash: [3, 3],
             },
           ],
         },
