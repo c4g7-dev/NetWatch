@@ -5,8 +5,12 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional
+import logging
 import platform
+import subprocess
 import yaml
+
+LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
@@ -75,11 +79,42 @@ class AppConfig:
     def ookla_platform_key(self) -> str:
         system = platform.system().lower()
         machine = platform.machine().lower()
-        # Normalize machine architecture names
+        
+        # Normalize machine architecture names to match Ookla's naming convention
         if machine in ("amd64", "x86_64"):
             machine = "x86_64"
         elif machine in ("arm64", "aarch64"):
             machine = "aarch64"
+        elif machine in ("i386", "i686", "x86"):
+            machine = "i386"
+        elif machine in ("armv7l", "armv7", "armhf"):
+            # Try to detect hard float vs soft float
+            # Default to armel (soft float) if we can't determine
+            machine = "armel"
+            try:
+                # Check for hard float support using readelf
+                # Only available on Linux systems
+                if system == "linux" and Path("/proc/self/exe").exists():
+                    result = subprocess.run(
+                        ["readelf", "-A", "/proc/self/exe"],
+                        capture_output=True,
+                        text=True,
+                        timeout=2
+                    )
+                    if "hard" in result.stdout.lower() or "Tag_ABI_VFP_args" in result.stdout:
+                        machine = "armhf"
+            except FileNotFoundError:
+                # readelf not available, default to armel
+                LOGGER.debug("readelf not found, defaulting to armel for armv7")
+            except subprocess.TimeoutExpired:
+                # readelf took too long, default to armel
+                LOGGER.debug("readelf timed out, defaulting to armel for armv7")
+            except Exception as e:
+                # Any other error, default to armel
+                LOGGER.debug(f"Error detecting ARM float type: {e}, defaulting to armel")
+        elif machine in ("armv6l", "armv6"):
+            machine = "armel"
+            
         return f"{system}_{machine}"
 
 
