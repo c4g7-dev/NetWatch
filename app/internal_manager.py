@@ -24,6 +24,8 @@ from .internal_db import (
 )
 from .internal_speedtest import InternalSpeedtestServer, calculate_bufferbloat_grade
 from .device_scanner import get_device_scanner, NetworkDevice
+from .measurements.speedtest_runner import ensure_ookla_binary, run_speedtest_test
+from .config import AppConfig
 
 LOGGER = logging.getLogger(__name__)
 
@@ -33,9 +35,10 @@ class InternalNetworkManager:
     Manages internal network testing, device tracking, and measurements.
     """
     
-    def __init__(self, session_factory: sessionmaker, data_dir: Path):
+    def __init__(self, session_factory: sessionmaker, data_dir: Path, config: AppConfig):
         self.session_factory = session_factory
         self.data_dir = data_dir
+        self.config = config
         self.speedtest_server = InternalSpeedtestServer()
         self.device_scanner = get_device_scanner()
         self._test_in_progress = False
@@ -899,36 +902,85 @@ class InternalNetworkManager:
         return result
     
     def _run_speedtest_cli(self) -> Optional[Dict[str, Any]]:
-        """Run speedtest-cli and return results."""
+        """Run Ookla speedtest CLI (with fallback to speedtest-cli)."""
         try:
-            result = subprocess.run(
-                ["python", "-m", "speedtest", "--json"],
-                capture_output=True, text=True, timeout=120
-            )
+            # Try Ookla CLI first (same as Internet tab)
+            LOGGER.info("Running Ookla speedtest CLI for HomeNet")
+            binary_path = ensure_ookla_binary(self.config)
+            result = run_speedtest_test(self.config)
             
-            if result.returncode == 0:
-                data = json.loads(result.stdout)
-                return {
-                    "download_mbps": data.get("download", 0) / 1_000_000,
-                    "upload_mbps": data.get("upload", 0) / 1_000_000,
-                    "ping_ms": data.get("ping"),
-                    "server": data.get("server", {}).get("name"),
-                }
+            # Convert MeasurementResult to dict format expected by HomeNet
+            return {
+                "download_mbps": result.download_mbps,
+                "upload_mbps": result.upload_mbps,
+                "ping_ms": result.ping_idle_ms,
+                "jitter_ms": result.jitter_ms,
+                "server": result.server,
+            }
         except Exception as e:
-            LOGGER.error(f"speedtest-cli failed: {e}")
+            # Fallback to Python speedtest-cli module
+            LOGGER.warning(f"Ookla CLI failed for HomeNet ({e}). Falling back to speedtest-cli")
+            try:
+                result = subprocess.run(
+                    ["python", "-m", "speedtest", "--json"],
+                    capture_output=True, text=True, timeout=120
+                )
+                
+                if result.returncode == 0:
+                    data = json.loads(result.stdout)
+                    return {
+                        "download_mbps": data.get("download", 0) / 1_000_000,
+                        "upload_mbps": data.get("upload", 0) / 1_000_000,
+                        "ping_ms": data.get("ping"),
+                        "jitter_ms": None,  # speedtest-cli doesn't provide jitter
+                        "server": data.get("server", {}).get("name"),
+                    }
+                else:
+                    LOGGER.error(f"speedtest-cli fallback failed with return code {result.returncode}")
+                    LOGGER.error(f"stderr: {result.stderr}")
+            except Exception as fallback_error:
+                LOGGER.error(f"speedtest-cli fallback failed: {fallback_error}")
         
         return None
     
     def _run_speedtest_cli_stream(self) -> Generator[Dict[str, Any], None, None]:
-        """Run speedtest-cli and yield progress events with simulated live speeds."""
+        """Run Ookla speedtest CLI with streaming progress (fallback to speedtest-cli)."""
         try:
-            # Run speedtest-cli with JSON output
-            process = subprocess.Popen(
-                ["python", "-m", "speedtest", "--json"],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True
-            )
+            # Try Ookla CLI first
+            try:
+                binary_path = ensure_ookla_binary(self.config)
+                LOGGER.info("Using Ookla CLI for HomeNet streaming speedtest")
+                use_ookla = True
+            except Exception as e:
+                LOGGER.warning(f"Ookla CLI not available ({e}), falling back to speedtest-cli")
+                use_ookla = False
+            
+            if use_ookla:
+                # Use Ookla CLI with JSON output
+                command = [
+                    str(binary_path),
+                    "--format=json",
+                    "--progress=no",
+                    "--accept-license",
+                    "--accept-gdpr"
+                ]
+                if self.config.speedtest.server_id:
+                    command += ["--server-id", str(self.config.speedtest.server_id)]
+                
+                process = subprocess.Popen(
+                    command,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True
+                )
+            else:
+                # Fallback to speedtest-cli
+                process = subprocess.Popen(
+                    ["python", "-m", "speedtest", "--json"],
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True
+                )
             
             # Simulate progress while waiting (speedtest-cli doesn't have progress output)
             # We'll estimate based on typical test duration (~30 seconds)
@@ -989,16 +1041,24 @@ class InternalNetworkManager:
             if result_holder["returncode"] == 0 and result_holder["stdout"]:
                 try:
                     data = json.loads(result_holder["stdout"])
-                    download_mbps = data.get("download", 0) / 1_000_000
-                    upload_mbps = data.get("upload", 0) / 1_000_000
-                    ping_ms = data.get("ping")
                     
-                    LOGGER.info(f"Speedtest-cli results: download={download_mbps:.1f}Mbps, upload={upload_mbps:.1f}Mbps, ping={ping_ms}ms")
+                    if use_ookla:
+                        # Parse Ookla JSON format
+                        download_mbps = (data.get("download", {}).get("bandwidth", 0) * 8) / 1_000_000
+                        upload_mbps = (data.get("upload", {}).get("bandwidth", 0) * 8) / 1_000_000
+                        ping_data = data.get("ping", {})
+                        ping_ms = ping_data.get("latency")
+                        jitter_ms = ping_data.get("jitter")
+                        server_name = data.get("server", {}).get("name")
+                    else:
+                        # Parse speedtest-cli format
+                        download_mbps = data.get("download", 0) / 1_000_000
+                        upload_mbps = data.get("upload", 0) / 1_000_000
+                        ping_ms = data.get("ping")
+                        jitter_ms = round(ping_ms * random.uniform(0.08, 0.18), 2) if ping_ms else None
+                        server_name = data.get("server", {}).get("name")
                     
-                    # Calculate jitter as ~10-20% of ping variance (simulated since speedtest doesn't provide it)
-                    jitter_ms = None
-                    if ping_ms:
-                        jitter_ms = round(ping_ms * random.uniform(0.08, 0.18), 2)
+                    LOGGER.info(f"Speedtest results: download={download_mbps:.1f}Mbps, upload={upload_mbps:.1f}Mbps, ping={ping_ms}ms")
                     
                     yield {
                         "type": "ping",
@@ -1012,7 +1072,7 @@ class InternalNetworkManager:
                         "upload": upload_mbps,
                         "ping": ping_ms,
                         "jitter": jitter_ms,
-                        "server": data.get("server", {}).get("name"),
+                        "server": server_name,
                     }
                 except json.JSONDecodeError as e:
                     LOGGER.error(f"Failed to parse speedtest JSON: {e}")
@@ -1020,10 +1080,11 @@ class InternalNetworkManager:
                     yield {"type": "error", "message": "Failed to parse speedtest results"}
             else:
                 LOGGER.error(f"Speedtest failed with return code {result_holder['returncode']}")
-                yield {"type": "error", "message": "Speedtest failed"}
+                LOGGER.error(f"stderr: {process.stderr.read() if process.stderr else 'N/A'}")
+                yield {"type": "error", "message": f"Speedtest failed with return code {result_holder['returncode']}"}
                 
         except Exception as e:
-            LOGGER.error(f"Streaming speedtest-cli failed: {e}")
+            LOGGER.error(f"Streaming speedtest failed: {e}")
             yield {"type": "error", "message": str(e)}
     
     def _store_measurement(self, results: Dict[str, Any], device_id: Optional[int] = None):

@@ -70,7 +70,7 @@ def create_web_app(
     data_dir = Path("data")
     data_dir.mkdir(exist_ok=True)
     internal_session_factory = init_internal_db(data_dir)
-    internal_manager = InternalNetworkManager(internal_session_factory, data_dir)
+    internal_manager = InternalNetworkManager(internal_session_factory, data_dir, config)
     internal_exporter = InternalCSVExporter(internal_session_factory, data_dir)
     
     # Auto-start the speedtest server on app startup
