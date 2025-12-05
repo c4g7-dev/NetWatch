@@ -906,7 +906,6 @@ class InternalNetworkManager:
         try:
             # Try Ookla CLI first (same as Internet tab)
             LOGGER.info("Running Ookla speedtest CLI for HomeNet")
-            binary_path = ensure_ookla_binary(self.config)
             result = run_speedtest_test(self.config)
             
             # Convert MeasurementResult to dict format expected by HomeNet
@@ -985,10 +984,10 @@ class InternalNetworkManager:
             # Simulate progress while waiting (speedtest-cli doesn't have progress output)
             # We'll estimate based on typical test duration (~30 seconds)
             import threading
-            result_holder = {"stdout": "", "returncode": None}
+            result_holder = {"stdout": "", "stderr": "", "returncode": None}
             
             def read_output():
-                result_holder["stdout"], _ = process.communicate()
+                result_holder["stdout"], result_holder["stderr"] = process.communicate()
                 result_holder["returncode"] = process.returncode
             
             thread = threading.Thread(target=read_output)
@@ -1080,7 +1079,8 @@ class InternalNetworkManager:
                     yield {"type": "error", "message": "Failed to parse speedtest results"}
             else:
                 LOGGER.error(f"Speedtest failed with return code {result_holder['returncode']}")
-                LOGGER.error(f"stderr: {process.stderr.read() if process.stderr else 'N/A'}")
+                if result_holder.get("stderr"):
+                    LOGGER.error(f"stderr: {result_holder['stderr'][:500]}")
                 yield {"type": "error", "message": f"Speedtest failed with return code {result_holder['returncode']}"}
                 
         except Exception as e:
