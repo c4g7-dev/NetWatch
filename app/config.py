@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional
 import platform
+import subprocess
 import yaml
 
 
@@ -88,18 +89,19 @@ class AppConfig:
             # Default to armel (soft float) if we can't determine
             machine = "armel"
             try:
-                import subprocess
-                # Check for hard float support
-                result = subprocess.run(
-                    ["readelf", "-A", "/proc/self/exe"],
-                    capture_output=True,
-                    text=True,
-                    timeout=2
-                )
-                if "hard" in result.stdout.lower() or "Tag_ABI_VFP_args" in result.stdout:
-                    machine = "armhf"
+                # Check for hard float support using readelf
+                # Only available on Linux systems
+                if system == "linux" and Path("/proc/self/exe").exists():
+                    result = subprocess.run(
+                        ["readelf", "-A", "/proc/self/exe"],
+                        capture_output=True,
+                        text=True,
+                        timeout=2
+                    )
+                    if "hard" in result.stdout.lower() or "Tag_ABI_VFP_args" in result.stdout:
+                        machine = "armhf"
             except Exception:
-                pass  # Default to armel
+                pass  # Default to armel if detection fails
         elif machine in ("armv6l", "armv6"):
             machine = "armel"
             
