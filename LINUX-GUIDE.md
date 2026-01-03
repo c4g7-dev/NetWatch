@@ -80,6 +80,75 @@ journalctl -u netwatch --since today
 journalctl -u netwatch -p err -n 50
 ```
 
+## 🔄 Running with PM2 (Alternative to systemd)
+
+PM2 is a powerful process manager for Node.js that also works great for Python applications. It provides automatic restarts, log management, and easy deployment.
+
+### Install PM2
+
+```bash
+# Install Node.js and npm (if not already installed)
+# Ubuntu/Debian:
+sudo apt update
+sudo apt install nodejs npm
+
+# CentOS/RHEL/Fedora:
+sudo dnf install nodejs npm
+
+# Install PM2 globally
+sudo npm install -g pm2
+```
+
+### Start NetWatch with PM2
+
+```bash
+# Start NetWatch (adjust paths to your installation)
+pm2 start bash --name "NetWatch" -- -c "source /root/NetWatch/.venv/bin/activate && python3 /root/NetWatch/main.py"
+
+# For /opt/netwatch installation:
+pm2 start bash --name "NetWatch" -- -c "source /opt/netwatch/.venv/bin/activate && python3 /opt/netwatch/main.py"
+```
+
+### PM2 Management Commands
+
+```bash
+# View running processes
+pm2 list
+
+# View logs
+pm2 logs NetWatch
+
+# Monitor resources
+pm2 monit
+
+# Stop NetWatch
+pm2 stop NetWatch
+
+# Restart NetWatch
+pm2 restart NetWatch
+
+# Delete from PM2
+pm2 delete NetWatch
+
+# Save current process list for auto-start on reboot
+pm2 save
+
+# Setup PM2 to start on system boot
+pm2 startup
+# Follow the command output to complete setup
+```
+
+### PM2 vs systemd
+
+| Feature | PM2 | systemd |
+|---------|-----|--------|
+| Easy setup | ✅ Simple commands | ⚠️ Requires service file |
+| Auto-restart | ✅ Built-in | ✅ Built-in |
+| Log management | ✅ Built-in rotation | ⚠️ Uses journald |
+| Resource monitoring | ✅ `pm2 monit` | ⚠️ External tools |
+| Web dashboard | ✅ `pm2 plus` (optional) | ❌ Not available |
+| Native to Linux | ❌ Requires Node.js | ✅ Yes |
+
 ## ⚙️ Configuration
 
 Edit the config file:

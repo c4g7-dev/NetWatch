@@ -245,6 +245,35 @@ systemctl status netwatch
 journalctl -u netwatch -f
 ```
 
+### PM2 Service (Alternative to systemd)
+
+PM2 is a popular process manager that provides automatic restarts, log management, and easy monitoring.
+
+```bash
+# Install Node.js and npm (if not installed)
+sudo apt install nodejs npm       # Ubuntu/Debian
+sudo dnf install nodejs npm       # CentOS/RHEL/Fedora
+
+# Install PM2 globally
+sudo npm install -g pm2
+
+# Start NetWatch with PM2
+pm2 start bash --name "NetWatch" -- -c "source /root/NetWatch/.venv/bin/activate && python3 /root/NetWatch/main.py"
+
+# For /opt/netwatch installation:
+pm2 start bash --name "NetWatch" -- -c "source /opt/netwatch/.venv/bin/activate && python3 /opt/netwatch/main.py"
+
+# Essential PM2 commands
+pm2 list                  # View running processes
+pm2 logs NetWatch         # View logs
+pm2 restart NetWatch      # Restart
+pm2 stop NetWatch         # Stop
+pm2 save                  # Save process list
+pm2 startup               # Enable auto-start on boot
+```
+
+**📖 See [LINUX-GUIDE.md](LINUX-GUIDE.md) for detailed PM2 configuration and comparison with systemd.**
+
 ### 🔒 Linux Firewall Configuration
 
 ```bash
